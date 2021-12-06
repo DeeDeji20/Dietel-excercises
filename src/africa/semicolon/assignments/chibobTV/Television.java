@@ -3,8 +3,8 @@ package africa.semicolon.assignments.chibobTV;
 public class Television {
     private boolean isOn= false;
     private int volume;
-    private int numOfChannels ;
-    int channel =1;
+    private int numOfChannels=1 ;
+    int totalChannel =20;
     public Television(String name, int numOfChannels) {
         this.numOfChannels =numOfChannels;
     }
@@ -36,7 +36,7 @@ public class Television {
     }
 
     public void setChannel(int channel) {
-        if (isOn && channel < numOfChannels) numOfChannels = channel;
+        if (isOn && channel < totalChannel) numOfChannels = channel;
         if (isOn && channel < 1) numOfChannels = 1;
     }
 
@@ -47,11 +47,22 @@ public class Television {
 
     public void arrowUp() {
         if (isOn) numOfChannels ++;
-        else numOfChannels = 0;
+        else numOfChannels = 1;
     }
 
     public void arrowDown() {
         if (isOn && numOfChannels > 1) numOfChannels--;
         else numOfChannels = 1;
     }
+
+    @Override
+    public String toString() {
+        return "Television{\n" +
+                "isOn=" + isOn +
+                ",\n volume=" + volume +
+                ",\n numOfChannels=" + numOfChannels +
+                ",\n total channel=" + totalChannel +
+                '}';
+    }
+
 }

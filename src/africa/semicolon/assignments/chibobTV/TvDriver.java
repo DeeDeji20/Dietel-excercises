@@ -4,17 +4,11 @@ import java.util.Scanner;
 
 public class TvDriver {
     public static Scanner scanner = new Scanner(System.in);
-    public static Television myTv = new Television("HiSense", 20);
-    public void Television(){
+    public static Television myTv = new Television("HiSense", 1);
 
-    }
-
-    public String toString(){
-        return
-    }
     public static void main(String[] args) {
-        System.out.println(myTv.toString());
-//        initialPrompt();
+//        System.out.println(myTv.toString());
+        initialPrompt();
     }
 
     private static void initialPrompt() {
@@ -45,7 +39,7 @@ public class TvDriver {
 
     private static void operationOptions() {
         String prompt = """
-                Press 
+                Press
                 1. volume
                 2. channel
                 3. go back
@@ -63,7 +57,7 @@ public class TvDriver {
 
     private static void channelOption() {
         String prompt = """
-                Press 
+                Press
                 1. increase channel by 1
                 2. decrease channel by 1
                 3. to navigate to desired channel
@@ -74,6 +68,8 @@ public class TvDriver {
         if (userInput == 1){
             myTv.arrowUp();
             System.out.println("You are on channel " + myTv.getChannel());
+//            System.out.println(myTv.toString());
+
         }
         else if (userInput == 2){
             myTv.arrowDown();
@@ -97,7 +93,7 @@ public class TvDriver {
     private static void volumeOption() {
         do {
             String prompt = """
-                Press 
+                Press
                 1. increase volume
                 2. decrease volume
                 3. go back
