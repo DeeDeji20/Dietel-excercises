@@ -73,20 +73,13 @@ public class ArrayOfNumbers {
         int total =0;
         int max =numbers[0];
         int totalMax=Integer.MAX_VALUE;
-//        for (int number : numbers) {
-//            total += number;
-//        }
-        for (int i =0; i< numbers.length; i++){
-            total += numbers[i];
+        for (int number : numbers) {
+            total += number;
         }
         for (int number : numbers) {
             max = number;
             if (total - max < totalMax) totalMax = total - max;
         }
         return totalMax;
-
-//        int totalMinusMax = total - max ;
-
-
     }
 }
