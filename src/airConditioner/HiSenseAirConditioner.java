@@ -10,7 +10,7 @@ public class HiSenseAirConditioner {
     }
 
     public static void startOption() {
-        display("Welcome to HiSense air conditioner!!! To purchase our product choose yes and no to exit\n");
+        display("Welcome to HiSense air conditioner!!! To purchase our product choose yes, and no to exit\n");
         String choice = scan.nextLine();
         boolean responseIsTrue = choice.toUpperCase().charAt(0) == 'Y';
         boolean responseIsFalse = choice.toUpperCase().charAt(0) == 'N';

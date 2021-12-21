@@ -1,5 +1,5 @@
 package africa.semicolon.assignments.chibobTV;
-
+import africa.semicolon.assignments.chibobTV.Television;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +9,7 @@ public class TelevisionTest {
     Television myTV;
     @BeforeEach
     public void startPoint(){
-         myTV= new Television("Samsung",20);
+        myTV= new Television("Samsung",20);
     }
     @Test
     public void tvCanBeTurnedOn(){
@@ -128,7 +128,7 @@ public class TelevisionTest {
         //check that channel changes by 1
         assertEquals(2, myTV.getChannel());
     }
-//    @Test
+    //    @Test
 //    public void cannotChangeChannelOnArrowUpWhenItExceedsNumberOfChannel(){
 //        //given that my tv is on
 //        myTV.toggleIsOn();

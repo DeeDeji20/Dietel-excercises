@@ -1,6 +1,10 @@
 package kataKata;
 
 public class Kata {
+    public static void main(String[] args) {
+        int[][] myArray = {{1,2,3,4}, {5,6,7,8}, {9,1,6,2}};
+        createTableFromArray(myArray);
+    }
     public char calculateGradeFor(int score) {
         if(score >= 90) return 'A';
         if (score >= 80) return 'B';
@@ -21,4 +25,23 @@ public class Kata {
         if (qty >= 500) return qty*pricePerQty;
         return 0;
     }
+
+    public static void createTableFromArray(int[][] myArray) {
+        horizontalLines();
+        System.out.println("\tTABLE");
+        horizontalLines();
+        for (int i = 0; i < myArray.length; i++) {
+            for (int j = 0; j < myArray[i].length; j++) {
+                System.out.print(" "+ myArray[i][j] + "| ");
+            }
+            System.out.println();
+        }
+        horizontalLines();
+    }
+
+    private static void horizontalLines() {
+        System.out.println("-".repeat(15));
+    }
+
+
 }

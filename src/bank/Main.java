@@ -12,7 +12,7 @@ public class Main {
     public static void initialPrompt() {
         String prompt = """
                 1.Create Account
-                2. Exit             
+                2. Exit
                 """;
 
         int userInput = input(prompt);

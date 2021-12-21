@@ -18,23 +18,23 @@ public class TvDriver {
                 0. turn tv off
                 """;
 
-                int userInput = display(prompt);
-                if (userInput ==1){
-                    myTv.toggleIsOn();
-                    System.out.println("Tv has been turned on");
-                    operationOptions();
-                }
-                else if (userInput == 0){
-                    while (myTv.checkState()){
-                        System.out.println("goodbye");
-                        myTv.toggleIsOn();
+        int userInput = display(prompt);
+        if (userInput ==1){
+            myTv.toggleIsOn();
+            System.out.println("Tv has been turned on");
+            operationOptions();
+        }
+        else if (userInput == 0){
+            while (myTv.checkState()){
+                System.out.println("goodbye");
+                myTv.toggleIsOn();
 //                        System.exit(0);
-                    }
+            }
 
-                } else {
-                    System.out.println("Invalid option");
-                    initialPrompt();
-                }
+        } else {
+            System.out.println("Invalid option");
+            initialPrompt();
+        }
     }
 
     private static void operationOptions() {
@@ -79,7 +79,7 @@ public class TvDriver {
         else {
             System.out.println("Invalid option");
         }
-            channelOption();
+        channelOption();
     }
 
     private static void setTvChannel() {

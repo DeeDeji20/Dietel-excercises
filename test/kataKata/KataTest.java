@@ -100,4 +100,11 @@ public class KataTest {
         int price = kata.calculatePriceFor(500, 1000);
         assertEquals(500000,price);
     }
+
+    @Test
+    void printMultidimensionalArrayAsTableTest(){
+        Kata kata = new Kata();
+        int[][] myArray = {{1,2,3,4}, {4,6,7,8}};
+        kata.createTableFromArray(myArray);
+    }
 }
