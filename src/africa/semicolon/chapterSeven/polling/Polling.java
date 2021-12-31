@@ -37,10 +37,6 @@ public class Polling {
             System.out.println();
         }
 
-//        String line = displayVerticalLine();
-//        System.out.println(line);
-
-
 
     }
 

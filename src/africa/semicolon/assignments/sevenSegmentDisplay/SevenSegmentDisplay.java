@@ -3,15 +3,17 @@ package africa.semicolon.assignments.sevenSegmentDisplay;
 import java.util.Arrays;
 
 public class SevenSegmentDisplay {
-    private static int[][] segments= {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
+    private static final int[][] segments= {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
 
-    public void setSevenSegment(String value) {
+    public void setSevenSegment(String value)
+    {
         validateInput(value);
     }
 
     private void validateInput(String value) {
        boolean isValid= isValid(value);
-        if (isValid && value.charAt(value.length()-1) == '1'){
+       boolean isOn = value.charAt(value.length()-1) == '1';
+        if (isValid && isOn){
             switchSegment(value);
         }else{
             for (int[] segment : segments) {

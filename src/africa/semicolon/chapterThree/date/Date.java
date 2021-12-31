@@ -39,6 +39,6 @@ public class Date {
         String newDate="";
 
 //        System.out.printf("%d / %d / %d%n", getMonth(), getDay(), getYear());
-         return newDate = getMonth() +"/" + getDay() + "/" + getYear();
+         return newDate = month +"/" + day + "/" + year;
     }
 }

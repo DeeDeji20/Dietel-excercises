@@ -6,6 +6,9 @@ public class HeartRate {
     private int month;
     private int day;
     private int year;
+    private int maxHeartRate;
+    private int myAge;
+
 
     public HeartRate(String firstName, String lastName, int month, int day, int year){
         this.firstName = firstName;
@@ -59,13 +62,13 @@ public class HeartRate {
 
     public int usersAge(){
         int currentYear = 2021;
-        int myAge = currentYear - getYear();
+        myAge = currentYear - year;
         return myAge;
 
     }
 
     public int maximumHeartRate(){
-        int maxHeartRate = 220 - usersAge();
+        maxHeartRate = 220 - myAge;
         return maxHeartRate;
     }
 
@@ -76,7 +79,7 @@ public class HeartRate {
 
     public double maxTargetHeartRate(){
         double max;
-        return max= (85.0/100.0) * maximumHeartRate();
+        return max= (85.0/100.0) * maxHeartRate;
     }
     public void targetHeartRate(){
         System.out.printf("Your target heart rate is between %.2f - %.2f", minTargetHeartRate(), maxTargetHeartRate());

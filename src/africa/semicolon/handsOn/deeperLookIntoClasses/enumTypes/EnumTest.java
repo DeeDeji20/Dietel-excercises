@@ -9,5 +9,11 @@ public class EnumTest {
         for (Book book : Book.values()){
             System.out.printf("%-10s%-45s%s%n",book, book.getTitle(), book.getCopyrightYear());
         }
+
+        System.out.printf("%nDispaly a range of enum constants:%n");
+
+        for (Book book : EnumSet.range(Book.JHTP, Book.CPPHTP)) {
+            System.out.printf("%-10s%-45s%s%n", book, book.getTitle(), book.getCopyrightYear());
+        }
     }
 }
