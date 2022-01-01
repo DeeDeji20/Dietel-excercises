@@ -12,15 +12,6 @@ public class SalesCommissionCalc {
         double price = 0;
 
         while(userInput > 0 && userInput < 5){
-//            if (userInput == 1){
-//                price = 239.99;
-//            }else if (userInput == 2){
-//                price = 129.75;
-//            }else if (userInput == 3){
-//                price = 99.95;
-//            }else if (userInput == 4){
-//                price = 350.89;
-//            }
             switch (userInput){
                 case 1 -> price = 239.99;
                 case 2 -> price = 129.75;

@@ -15,7 +15,13 @@ public class TwelveDaysOfChristmas {
         else if(dayOfChristmas == 3)qualify= "rd";
         else qualify ="th";
 
-        System.out.println("On the " + dayOfChristmas + qualify + " day of christmas my true love gave to me");
+        switch (dayOfChristmas){
+            case 1 -> System.out.println("first");
+            case 2 -> System.out.println("second");
+            case 3 -> System.out.println("third");
+        }
+
+        System.out.println("On the " + dayOfChristmas + qualify + " day of christmas my true love gave to me: ");
         while (dayOfChristmas > 0){
             switch (dayOfChristmas){
                 case 1 -> System.out.println("A patridge in a pear tree");

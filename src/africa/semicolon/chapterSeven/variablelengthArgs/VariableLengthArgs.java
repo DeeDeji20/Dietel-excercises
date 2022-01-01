@@ -1,8 +1,6 @@
 package africa.semicolon.chapterSeven.variablelengthArgs;
 
 import java.util.Arrays;
-import java.util.Scanner;
-
 public class VariableLengthArgs {
     public static void main(String[] args) {
             System.out.println("The product is: "+ calculateProductOfVargs(2, 3, 10));
