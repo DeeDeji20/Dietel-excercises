@@ -16,7 +16,7 @@ public class SalesCommission {
     public static void main(String[] args) {
         ArrayList<Double> employeeSalaries = new ArrayList<>();
             int count =0;
-            while (count < 1) {
+            while (count < 2) {
                 int salesPerWeek = collectSalesPerWeekPerEmployee();
                 double employeeSalary = calclateEmployeeSalesCommission(salesPerWeek);
                 inputEmployeeSalaryIntoArray(employeeSalaries, employeeSalary);
@@ -25,22 +25,21 @@ public class SalesCommission {
         System.out.println(employeeSalaries);
 
             int[] ranges =checkSalaryRange(employeeSalaries);
-            printRanges(ranges, employeeSalaries);
+            printRanges(ranges);
 
     }
 
-    private static void printRanges(int[] ranges, ArrayList<Double> employeeSalaries) {
+    private static void printRanges(int[] ranges) {
         for (int count = 1; count <= ranges.length; count++) {
             if (count == ranges.length) System.out.printf("%5d: ", 1000);
-            else System.out.printf("%2d-%2d: %n", 100+(count*100), 100+(count*100+99));
-//            System.out.println();
-        }
-        for (int range : ranges) {
-            if (range == 0) System.out.print("-");
-            else System.out.print(range);
-        }
-        System.out.println();
+            else System.out.printf("%2d-%2d: ", 100+(count*100), 100+(count*100+99));
 
+            for (int i = count-1; i < count; i++) {
+                if (ranges[count-1] == 0) System.out.print("-");
+                else System.out.print(ranges[count-1]);
+            }
+            System.out.println();
+        }
     }
 
     private static int[] checkSalaryRange(ArrayList<Double> employeeSalaries) {
@@ -67,8 +66,7 @@ public class SalesCommission {
     private static double calclateEmployeeSalesCommission(int salesPerWeek) {
         int salary = 200;
         double commission = 0.09;
-        double employeeSalary = salary + (commission * salesPerWeek);
-        return employeeSalary;
+        return salary + (commission * salesPerWeek);
     }
 
     private static int collectSalesPerWeekPerEmployee() {
