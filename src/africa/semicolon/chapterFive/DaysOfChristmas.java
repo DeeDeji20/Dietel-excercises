@@ -38,7 +38,7 @@ public class DaysOfChristmas {
                     default -> System.out.println("Not a day of christmas");
                 }
                 j--;
-                if (j == 0) break;
+                //if (j == 0) break;
             }
             System.out.print("=".repeat(20));
             System.out.println();
