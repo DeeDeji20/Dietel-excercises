@@ -9,10 +9,10 @@ public class LargestSumRow {
         for (int i = 0; i < array[0].length; i++) {
             maxRow += array[0][i];
         }
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 1; i < array.length; i++) {
             int totalOfThisRow =0;
             for (int j = 0; j < array[i].length; j++) {
-                totalOfThisRow = array[i][j];
+                totalOfThisRow += array[i][j];
 
                 if (totalOfThisRow > maxRow){
                     maxRow = totalOfThisRow;

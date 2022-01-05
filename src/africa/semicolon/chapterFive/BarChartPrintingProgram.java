@@ -12,8 +12,13 @@ public class BarChartPrintingProgram {
         for (int i = 0; i < 5; i++) {
             System.out.println("Enter a number btw 1 and 30");
             userInput = scanner.nextInt();
+            while (userInput > 30){
+                System.out.println("Enter a number btw 1 and 30");
+                userInput = scanner.nextInt();
+            }
             System.out.print(userInput + "-> ");
             for (int j = 0; j < userInput; j++) {
+
                 System.out.print("* ");
             }
             System.out.println();
