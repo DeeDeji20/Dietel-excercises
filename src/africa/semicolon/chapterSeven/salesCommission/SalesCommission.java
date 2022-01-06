@@ -10,7 +10,7 @@ public class SalesCommission {
      *2. sum them all up
      *3. calculate the wage of sales person
      *4. push the sales person wage int an array
-     * repeat 1 -4 unti; the user reaches an end of line character
+     * repeat 1 -4 until; the user reaches an end of line character
      */
 
     public static void main(String[] args) {

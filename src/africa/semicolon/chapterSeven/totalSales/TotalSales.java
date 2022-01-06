@@ -32,36 +32,42 @@ public class TotalSales {
                 salesInfo[i][4] = price4;
             }
         }
-        calulateTotalForsalesPersons(salesInfo);
-
         displaySalesInfo(salesInfo);
+        calulateTotalForsalesPersons(salesInfo);
     }
 
     private static void calulateTotalForsalesPersons(int[][] salesInfo) {
-        int total =0;
-        for (int i = 0; i < 1; i++) {
-            for (int j = 0; j < salesInfo[i].length; j++) {
-//                total+= salesInfo[i][j];
-                System.out.println(salesInfo[i][j]);
+        System.out.print("\t\t");
+        for (int i = 0; i < salesInfo.length; i++) {
+            int total =0;
+            for (int j = 1; j < salesInfo[i].length; j++) {
+                total+= salesInfo[i][j];
             }
+            System.out.printf("%d  ", total);
         }
-        System.out.println(total);
     }
 
     private static void displaySalesInfo(int[][] salesInfo) {
-//        for (int[] saleInfo : salesInfo) {
-//            for (int sale : saleInfo) {
-//                System.out.printf("%d\t\t" ,sale);
-//            }
-//            System.out.println();
-//        }
-
+        String[] salesPerson = {"person1", "person2", "person3", "person4", "person5"};
         for (int i = 0; i < salesInfo.length; i++) {
-//            System.out.printf("%s","salesperson");
+            for (int j = i; j < i+1; j++) {
+                System.out.print(salesPerson[j]+ "\t");
+            }
             for (int j = 0; j < salesInfo[i].length; j++) {
                 System.out.printf("%d\t", salesInfo[j][i]);
             }
             System.out.println();
         }
+        System.out.println("-".repeat(30));
+
+        //total of the column
+//        System.out.print("\t\t");
+//        for (int i = 0; i < salesInfo.length; i++) {
+//            int total =0;
+//            for (int j = 1; j < salesInfo[i].length; j++) {
+//                total+= salesInfo[i][j];
+//            }
+//            System.out.printf("%d  ", total);
+//        }
     }
 }
