@@ -28,26 +28,16 @@ public class AirlineReservation {
     }
 
     private static void seatIsReserved(int seatNumber, boolean[] seatIsEmpty, int classForReservation) {
-//        for (int i = 0; i < seatIsEmpty.length; i++) {
-//            if (seatNumber == i+1 && !seatIsEmpty[i]) seatIsEmpty[i] = true;
-//            else {
-//                collectUserInput("Seat gtaken, Please type 1 for First Class and\n" +
-//                        "Please type 2 for Economy");
-//            }
-//        }
-        while (seatIsEmpty[seatNumber]){
-//            if (seatIsEmpty[seatNumber]){
-//                System.out.println("Seat tken");
-//                break;
-//            }
-
-            if (seatIsEmpty[0] && seatIsEmpty[1] && seatIsEmpty[2] && seatIsEmpty[3]&& seatIsEmpty[4]){
-                System.out.println("All first class seats are taken");
-            }
-            System.out.println("seat taken");
+        if (seatIsEmpty[seatNumber-1]){
+            System.out.println("Seat tken");
             assignSeatNumbers(classForReservation);
         }
-       if(!seatIsEmpty[seatNumber]) seatIsEmpty[seatNumber-1] = true;
+
+        if (seatIsEmpty[0] && seatIsEmpty[1] && seatIsEmpty[2] && seatIsEmpty[3]&& seatIsEmpty[4]){
+            System.out.println("All first class seats are taken");
+        }
+
+        if(!seatIsEmpty[seatNumber-1]) seatIsEmpty[seatNumber-1] = true;
     }
 
     private static int assignSeatNumbers(int classForReservation) {
