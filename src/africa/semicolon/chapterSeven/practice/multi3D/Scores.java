@@ -17,7 +17,7 @@ public class Scores {
         for (int i = 0; i < scores.length; i++) {
             for (int j = 0; j < scores[i].length; j++) {
                 for (int k = 0; k < 2; k++) {
-                System.out.print(scores[i][j][k] + " ");
+                System.out.print(scores[i][j][k] + " | ");
                 }
             }
         System.out.println();
