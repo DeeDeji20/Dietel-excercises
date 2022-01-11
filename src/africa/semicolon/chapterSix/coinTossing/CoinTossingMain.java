@@ -21,7 +21,7 @@ public class CoinTossingMain {
         }
         else System.exit(0);
 
-        
+
         System.out.printf("The total head count is : %d%n", coinTossing.getHeadCount());
         System.out.printf("The total tail count is : %d", coinTossing.getTailCount());
 
