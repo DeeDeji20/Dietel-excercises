@@ -18,7 +18,6 @@ public class AirlineReservation {
             seatIsReserved(seatNumber, seatIsEmpty, classForReservation);
         }
         displaySeats(seatIsEmpty);
-
     }
 
     private static void displaySeats(boolean[] seatIsEmpty) {

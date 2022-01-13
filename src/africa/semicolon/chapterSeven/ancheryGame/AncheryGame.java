@@ -14,6 +14,8 @@ public class AncheryGame {
 
     private static void checkWinner(int[][] collections, int sum) {
         int j = 0;
+        int highestPlayerIndex = 0;
+
         for (; j < collections.length; j++) {
             int[] collection = collections[j];
             int total = 0;
@@ -21,14 +23,18 @@ public class AncheryGame {
             for (; i < collections[j].length; i++) {
                 int value = collection[i];
                 total += value;
+//                if (total == sum && collections[j][i] != highestPlayerIndex){
+//                    System.out.println("hi");
+//                }
+                if (total >= sum) {
+                    sum = total;
+                    highestPlayerIndex = j+1;
+                }
             }
-            if (total > sum) {
-                sum = total;
-                System.out.println("The winner of the game is player " + (j+1));
-            }
-//            else if(total == sum) System.out.println("There is a draw");
+
         }
-//            System.out.println("sum: " + sum);
+        System.out.println("The winner of the game is player " + highestPlayerIndex);
+
     }
 
     private static int calculateTotalOfFirst(int[][] collections) {
@@ -66,9 +72,8 @@ public class AncheryGame {
                 SecureRandom random = new SecureRandom();
                 int playerScore = random.nextInt(10);
                 collections[i][j] = playerScore;
-//                System.out.print(collections[i][j]);
             }
-            System.out.println();
+//            System.out.println();
         }
     }
 }

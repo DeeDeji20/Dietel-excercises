@@ -7,7 +7,7 @@ import static java.lang.Double.NaN;
 
 public class ReversingDigits {
     public void reversedigit(int number) {
-        if (number == NaN) throw new InputMismatchException();
+        if (number ==NaN) throw new InputMismatchException();
         String convertedToSting = number + "";
 //        System.out.println(convertedToSting.length());
         StringBuilder reversedDigit = new StringBuilder();
@@ -17,3 +17,4 @@ public class ReversingDigits {
         System.out.println(reversedDigit);
     }
 }
+
