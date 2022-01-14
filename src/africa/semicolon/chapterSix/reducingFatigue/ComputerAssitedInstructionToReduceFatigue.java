@@ -48,7 +48,6 @@ public class ComputerAssitedInstructionToReduceFatigue {
                     case 3 -> System.out.println("nice work!");
                     case 4 -> System.out.println("Keep up the good work");
                 }
-//                System.out.println("Congratulations");
                 System.out.println("Would you like to continue the game?");
                 scan.nextLine();
                 String response = scan.nextLine();
@@ -59,5 +58,4 @@ public class ComputerAssitedInstructionToReduceFatigue {
                 }else System.exit(0);
             }
         }
-
 }
