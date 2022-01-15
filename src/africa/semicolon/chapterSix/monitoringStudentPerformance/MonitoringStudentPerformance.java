@@ -6,16 +6,12 @@ import java.util.Scanner;
 public class MonitoringStudentPerformance {
     private static final SecureRandom random = new SecureRandom();
     private static final Scanner scan = new Scanner(System.in);
-    private int numberOfcorrectAnswers =0;
-    private int count = 0;
-    private int percentage;
-
-
+    private int numberOfCorrectAnswers =0;
 
     public void startGame() {
-        int randomNum1 = generateRandomNumbers1();
-        int randomNum2  = generateRandomNumbers2();
-        checkResponse(randomNum1, randomNum2);
+            int randomNum1 = generateRandomNumbers1();
+            int randomNum2  = generateRandomNumbers2();
+            checkResponse(randomNum1, randomNum2);
     }
 
     private static int generateRandomNumbers2() {
@@ -29,46 +25,29 @@ public class MonitoringStudentPerformance {
     private void checkResponse(int randomNum1, int randomNum2) {
         System.out.printf("How much is %d time %d -> ", randomNum1, randomNum2);
         int userInput = scan.nextInt();
-        while(userInput != randomNum1 * randomNum2){
-            int randomPick = 1 + random.nextInt(4);
-            switch(randomPick){
-                case 1 -> System.out.println("No please try again");
-                case 2 -> System.out.println("Wrong, try once more");
-                case 3 -> System.out.println("Don't give up!");
-                case 4 -> System.out.println("No keep trying");
-            }
-            System.out.printf("How much is %d time %d -> ", randomNum1, randomNum2);
-            userInput = scan.nextInt();
-        }
-        int correct = checkCorrectAnswer(userInput, randomNum1, randomNum2);
-//        System.out.println(correct);
+        if (userInput == randomNum1 * randomNum2) checkCorrectAnswer();
     }
 
-    private int checkCorrectAnswer(int userInput, int randomNum1, int randomNum2) {
-            numberOfcorrectAnswers++;
-
-            int randomPick = 1 + random.nextInt(4);
-            switch(randomPick){
-                case 1 -> System.out.println("Very good");
-                case 2 -> System.out.println("Excellent");
-                case 3 -> System.out.println("nice work!");
-                case 4 -> System.out.println("Keep up the good work");
-            }
-        return numberOfcorrectAnswers;
+    private void checkCorrectAnswer() {
+        numberOfCorrectAnswers++;
+        int randomPick = 1 + random.nextInt(4);
+        switch(randomPick){
+            case 1 -> System.out.println("Very good");
+            case 2 -> System.out.println("Excellent");
+            case 3 -> System.out.println("nice work!");
+            case 4 -> System.out.println("Keep up the good work");
+        }
     }
 
     private void calculateAverage(int numberOfcorrectAnswers) {
-         percentage = numberOfcorrectAnswers * 100 / 10;
-        System.out.println(percentage);
-
+        int percentage = numberOfcorrectAnswers * 100 / 10;
         if (percentage > 75) System.out.println("Congratulations, you are ready to go to the next level!");
         else System.out.println("Please ask your teacher for extra help.");
-        startGame();
     }
 
     public void displayAverage(){
-        System.out.printf("You scored %d%% %n", numberOfcorrectAnswers * 100 / 10);
-        calculateAverage(numberOfcorrectAnswers);
+        System.out.printf("You scored %d%% %n", numberOfCorrectAnswers * 100 / 10);
+        calculateAverage(numberOfCorrectAnswers);
+        numberOfCorrectAnswers = 0;
     }
-
 }
