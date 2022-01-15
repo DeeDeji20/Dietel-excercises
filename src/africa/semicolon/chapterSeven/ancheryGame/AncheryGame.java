@@ -13,19 +13,15 @@ public class AncheryGame {
     }
 
     private static void checkWinner(int[][] collections, int sum) {
-        int j = 0;
         int highestPlayerIndex = 0;
 
-        for (; j < collections.length; j++) {
+        for (int j = 0; j < collections.length; j++) {
             int[] collection = collections[j];
             int total = 0;
-            int i = 0;
-            for (; i < collections[j].length; i++) {
+
+            for (int i = 0; i < collections[j].length; i++) {
                 int value = collection[i];
                 total += value;
-//                if (total == sum && collections[j][i] != highestPlayerIndex){
-//                    System.out.println("hi");
-//                }
                 if (total >= sum) {
                     sum = total;
                     highestPlayerIndex = j+1;
