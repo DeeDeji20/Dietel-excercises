@@ -6,6 +6,11 @@ import java.util.Scanner;
 public class DifficultyLevel {
     private static final Scanner scan = new Scanner(System.in);
     private static final SecureRandom random = new SecureRandom();
+    
+    public void startGame(){
+        int difficultyLevel = promptUserForDifficultyLevel("Enter difficulty level: ");
+        displayQuestionBasedOnDifficultyLevel(difficultyLevel);
+    }
     public int promptUserForDifficultyLevel(String msg) {
         System.out.println(msg);
         return scan.nextInt();
@@ -27,15 +32,22 @@ public class DifficultyLevel {
         int randomNum1 = 1 + random.nextInt(10);
         int randomNum2  = 1 + random.nextInt(10);
         int answer = promptUserForQuestion(randomNum1, randomNum2);
-        checkUserAnswer(answer, randomNum1, randomNum1);
+//        checkUserAnswer(answer, randomNum1, randomNum1);
+        checkCorrectAnswer(answer, randomNum1, randomNum2);
     }
 
     private void checkUserAnswer(int answer, int randomNum1, int randomNum2) {
+        System.out.println(randomNum1 * randomNum2);
+        System.out.println(randomNum1 +" "+ randomNum2);
         while (answer != randomNum1 * randomNum2){
             System.out.println("Wrong");
             answer = promptUserForQuestion(randomNum1, randomNum2);
         }
-        if (answer == randomNum1 * randomNum2) {
+
+    }
+
+    private void checkCorrectAnswer(int answer, int randomNum1, int randomNum2) {
+        while (answer == randomNum1 * randomNum2) {
             int randomPick = 1 + random.nextInt(4);
             switch(randomPick){
                 case 1 -> System.out.println("Very good");
@@ -43,11 +55,18 @@ public class DifficultyLevel {
                 case 3 -> System.out.println("nice work!");
                 case 4 -> System.out.println("Keep up the good work");
             }
+
+            System.out.println("Would you like to continue the game?");
+            scan.nextLine();
+            String response = scan.nextLine();
+            if (response.toUpperCase().charAt(0) == 'Y'){
+                startGame();
+            }else System.exit(0);
         }
     }
 
     private int promptUserForQuestion( int randomNum1, int randomNum2) {
-        System.out.println("How much is " + randomNum1 + "times" + randomNum2);
+        System.out.println("How much is " + randomNum1 + " times " + randomNum2);
         return scan.nextInt();
     }
 }
