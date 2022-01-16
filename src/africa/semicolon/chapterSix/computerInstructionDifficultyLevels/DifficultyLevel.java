@@ -25,15 +25,16 @@ public class DifficultyLevel {
         int randomNum1 = 11 + random.nextInt(20);
         int randomNum2  = 11 + random.nextInt(20);
         int answer = promptUserForQuestion(randomNum1, randomNum2);
-        checkUserAnswer(answer, randomNum1, randomNum1);
+        checkCorrectAnswer(answer, randomNum1, randomNum2);
+        checkUserAnswer(answer, randomNum1, randomNum2);
     }
 
     private void singleDigitNumbers() {
         int randomNum1 = 1 + random.nextInt(10);
         int randomNum2  = 1 + random.nextInt(10);
         int answer = promptUserForQuestion(randomNum1, randomNum2);
-//        checkUserAnswer(answer, randomNum1, randomNum1);
         checkCorrectAnswer(answer, randomNum1, randomNum2);
+        checkUserAnswer(answer, randomNum1, randomNum2);
     }
 
     private void checkUserAnswer(int answer, int randomNum1, int randomNum2) {
