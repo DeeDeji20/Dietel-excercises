@@ -3,6 +3,7 @@ package africa.semicolon.chapterSix.varyingTypeOfProblems;
 import java.security.SecureRandom;
 import java.util.Scanner;
 
+
 public class VaryingProblemTypes {
     private final Scanner scan = new Scanner(System.in);
     private final SecureRandom random = new SecureRandom();
