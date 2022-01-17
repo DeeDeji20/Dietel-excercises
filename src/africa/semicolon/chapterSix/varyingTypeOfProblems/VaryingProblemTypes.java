@@ -81,5 +81,4 @@ public class VaryingProblemTypes {
         System.out.println(msg);
         return scan.nextInt();
     }
-
 }

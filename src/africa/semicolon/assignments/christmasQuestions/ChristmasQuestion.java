@@ -12,13 +12,11 @@ public class ChristmasQuestion {
             "What does the green color of Christmas signify? A.Life B.Agriculture",
             "What does mistletoe symbolize? A.Kisses B.Love"
     };
-    private final String[] answers = new String[5];
+    private final String[] usersAnswers = new String[5];
     private final String[] correctAnswers = {"A", "A", "B", "B", "A", "B"};
     private final String[] questionsRendered = new String[5];
     private  int countCorrectAnswers =0;
     private int questionServed =0;
-    private int falseCount =0;
-
 
 
     public void promptUserForName() {
@@ -32,36 +30,31 @@ public class ChristmasQuestion {
     }
 
     public void renderQuestions() {
-        displayFiveRandomQuestions(questions);
+        displayRandomQuestion(questions);
     }
 
 
-    private void displayFiveRandomQuestions(String[] questions){
+    private void displayRandomQuestion(String[] questions){
         String answerToQuestion;
-        while (questionServed < answers.length) {
+        while (questionServed < usersAnswers.length) {
             int random = gearateRandomNumber();
-            if(checkRandomQuestion(questions[random])){
+            if(isANewQuestionRendered(questions[random])){
                 output(questions[random]);
                 questionsRendered[questionServed] = questions[random];
                 answerToQuestion = input().toUpperCase();
-                answers[questionServed] = answerToQuestion;
-                checkUserAnswer(answers[questionServed], correctAnswers[random]);
+                usersAnswers[questionServed] = answerToQuestion;
+                checkUserAnswer(usersAnswers[questionServed], correctAnswers[random]);
                 questionServed++;
             }else{
-                displayFiveRandomQuestions(questions);
+                displayRandomQuestion(questions);
             }
         }
     }
 
-    private boolean checkRandomQuestion(String question){
+    private boolean isANewQuestionRendered(String question){
         for (String renderedQuestion :questionsRendered) {
-            if (Objects.isNull(questionsRendered[0])) {
-                return true;
-            }
-            else if (question.equals(renderedQuestion)){
-                falseCount++;
-                return false;
-            }
+            if (Objects.isNull(questionsRendered[0])) return true;
+            else if (question.equals(renderedQuestion)) return false;
         }
         return true;
     }
@@ -84,9 +77,7 @@ public class ChristmasQuestion {
         return countCorrectAnswers;
     }
 
-
     public  int getQuestionServed() {
         return questionServed;
     }
-
 }
