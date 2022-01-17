@@ -12,7 +12,7 @@ public class VaryingProblemTypes {
     int difficultyLevel;
     int randomPick;
     public void startGame() {
-        difficultyLevel = promptUserForDifficultyLevel("Enter difficulty level(1.+, 2.-, 3.*, 4./): ");
+        difficultyLevel = promptUserForDifficultyLevel();
         displayQuestionBasedOnDifficultyLevel(difficultyLevel);
     }
 
@@ -77,8 +77,8 @@ public class VaryingProblemTypes {
         return scan.nextInt();
     }
 
-    private int promptUserForDifficultyLevel(String msg) {
-        System.out.println(msg);
+    private int promptUserForDifficultyLevel() {
+        System.out.println("Enter difficulty level\n Select\n 1.Addition\n 2.Subtraction\n 3.Multiplication\n 4.Division\n 5.Random arthmetic question: \n");
         return scan.nextInt();
     }
 }
