@@ -24,11 +24,6 @@ public class VaryingProblemTypes {
     }
 
     private void displayRandomMixtureQuestion() {
-        int answer = promptUserForQuestion(randomNum1, randomNum2);
-        checkUserAnswer(answer, randomNum1, randomNum2);
-    }
-
-    private void displayDivisionQuestion() {
         randomPick = 1 + random.nextInt(4);
         switch (randomPick){
             case 1 -> displayAdditionQuestion();
@@ -36,6 +31,12 @@ public class VaryingProblemTypes {
             case 3 -> displayMultiplicationQuestion();
             case 4 -> displayDivisionQuestion();
         }
+    }
+
+    private void displayDivisionQuestion() {
+        int answer = promptUserForQuestion(randomNum1, randomNum2);
+        checkUserAnswer(answer, randomNum1, randomNum2);
+
     }
 
     private void displayMultiplicationQuestion() {
@@ -72,7 +73,6 @@ public class VaryingProblemTypes {
         if (difficultyLevel == 2 || (difficultyLevel == 5 && randomPick == 2)) System.out.println("How much is " + randomNum1 + " - " + randomNum2);
         if (difficultyLevel == 3 || (difficultyLevel == 5 && randomPick == 3)) System.out.println("How much is " + randomNum1 + " * " + randomNum2);
         if (difficultyLevel == 4 || (difficultyLevel == 5 && randomPick == 4))System.out.println("How much is " + randomNum1 + " / " + randomNum2);
-        else System.out.println("hi");
         return scan.nextInt();
     }
 
