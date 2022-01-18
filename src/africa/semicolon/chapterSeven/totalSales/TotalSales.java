@@ -53,7 +53,9 @@ public class TotalSales {
             for (int j = i; j < i+1; j++) {
                 System.out.print(salesPerson[j]+ "\t");
             }
+            int sum =0;
             for (int j = 0; j < salesInfo[i].length; j++) {
+                sum = salesInfo[j+1][i];
                 System.out.printf("%d\t", salesInfo[j][i]);
             }
             System.out.println();
