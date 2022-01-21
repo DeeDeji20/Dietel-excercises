@@ -10,16 +10,14 @@ public class Fibonacci {
     }
 
     private static void fibonacci(int value) {
-        int y = 1;
-        int x = 1;
+        int n1 = 0;
+        int n2 = 1;
+        int n3;
         for (int i = 0; i < series.length; i++) {
-            x= x+y;
-            series[i] = x;
-            y = x;
-            if(i ==1){
-                System.out.println(x);
-                break;
-            }
+            n3 = n1 + n2;
+            series[i] = n3;
+            n1 = n2;
+            n2 = n3;
         }
     }
 }
