@@ -9,7 +9,6 @@ public class Main {
 
         FanClass fanClass2 = new FanClass(Speed.MEDIUM, false);
         fanClass2.setRadius(5.0);
-//        fanClass2.setColor("");
         System.out.println(fanClass2);
     }
 }
