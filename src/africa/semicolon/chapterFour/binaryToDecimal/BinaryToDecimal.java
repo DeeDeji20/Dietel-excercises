@@ -15,16 +15,12 @@ public class BinaryToDecimal {
         int counter=0;
         int base=10;
         int sum=0;
-
         double binaryStore;
 
         int inputLength= convertUserInput.length();
-        // System.out.println(userInput/1000);
 
         while(counter<inputLength){
-            //check the input
             binaryStore= userInput %(Math.pow(base, counter+1))/(Math.pow(base, counter));
-            // System.out.println(binaryStore);
             int binaryStoreValue= (int) binaryStore;
 
             if(binaryStoreValue ==0 || binaryStoreValue==1){

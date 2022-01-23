@@ -2,10 +2,18 @@ package africa.semicolon.chapterEight.rectangleClass;
 
 public class RectangleClass {
 
-    private double length = 1.0;
-    private double width = 1.0;
+    private double length;
+    private double width;
     private double area;
     private double perimeter;
+
+    public RectangleClass(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+    public RectangleClass() {
+        this(1.0, 1.0);
+    }
 
     public void setLength(double length) {
         if (length > 0.0 && length <= 20.0) this.length += length;
