@@ -20,5 +20,15 @@ class SavingsAccountTest {
     @Test
     public void testThatMonthlyIncomeInterestCanCalculated(){
         savingsAccount.calculateMonthlyInterest();
+        double savings = savingsAccount.getSavingsBalance();
+        assertEquals(100.41666666666667, savings);
+    }
+
+
+    @Test
+    public void testThatAnnualInterestRateCanBeModified(){
+        SavingsAccount.modifyInterestRate(0.06);
+        double annualInterestRate =SavingsAccount.getAnnualInterestRate();
+        assertEquals(0.06, annualInterestRate);
     }
 }
