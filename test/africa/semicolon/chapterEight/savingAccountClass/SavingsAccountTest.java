@@ -21,7 +21,7 @@ class SavingsAccountTest {
     public void testThatMonthlyIncomeInterestCanCalculated(){
         savingsAccount.calculateMonthlyInterest();
         double savings = savingsAccount.getSavingsBalance();
-        assertEquals(100.41666666666667, savings);
+        assertEquals(100.5, savings);
     }
 
 
