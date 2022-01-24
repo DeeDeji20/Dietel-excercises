@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SavingsAccountTest {
-    SavingsAccount savingsAccount = new SavingsAccount();
+    SavingsAccount savingsAccount = new SavingsAccount(100);
     @BeforeEach
     void setUp(){
-        savingsAccount = new SavingsAccount();
+        savingsAccount = new SavingsAccount(100);
     }
 
     @Test
