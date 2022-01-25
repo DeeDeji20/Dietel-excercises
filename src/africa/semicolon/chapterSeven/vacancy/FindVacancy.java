@@ -4,9 +4,17 @@ import java.util.Scanner;
 
 public class FindVacancy {
     int[] rooms = {2, 6, 8, 0, 5, 4, 0};
+
     public void searchForRoom() {
         boolean isEmpty = checkForEmptyRoom();
         assignRoom(isEmpty);
+        printArray();
+    }
+
+    private void printArray() {
+        for (int room : rooms) {
+            System.out.print(room + " ");
+        }
     }
 
     private void assignRoom(boolean isEmpty) {
@@ -17,9 +25,8 @@ public class FindVacancy {
     }
 
     private void allocatePeople(int numOfPeople) {
-        for (int i = 0; i < rooms.length; i++) {
-            
-        }
+        int i = 0;
+        rooms[i] = numOfPeople;
     }
 
     private int promptUserForNumberOfPeople() {
@@ -34,4 +41,5 @@ public class FindVacancy {
         }
         return false;
     }
+
 }
