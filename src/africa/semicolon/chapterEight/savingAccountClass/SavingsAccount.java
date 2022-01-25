@@ -1,5 +1,4 @@
 package africa.semicolon.chapterEight.savingAccountClass;
-
 public class SavingsAccount {
     private static double annualInterestRate = 0.05;
     private double savingsBalance;
