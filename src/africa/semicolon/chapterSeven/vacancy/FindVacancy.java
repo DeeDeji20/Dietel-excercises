@@ -3,14 +3,17 @@ package africa.semicolon.chapterSeven.vacancy;
 import java.util.Scanner;
 
 public class FindVacancy {
-    int[] rooms = {2, 6, 8, 0, 5, 4, 0};
+    int[] rooms = {2, 6, 0, 4, 5, 4, 1};
     private int i;
 
     public void searchForRoom() {
 //        int userInput = promptUserForNumberOfPeople();
         boolean isEmpty = checkForEmptyRoom();
-        assignRoom(isEmpty);
-        printArray();
+        if (isEmpty){
+            assignRoom(true);
+            printArray();
+        } else System.out.println("Sorry no vacancy");
+
     }
 
     private void printArray() {
