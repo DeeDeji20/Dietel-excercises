@@ -13,9 +13,13 @@ class QueueTest {
         assertEquals(8, elements.length);
     }
 
-//    void testMethodEnqueue(){
-//        Queue queue = new Queue();
-//        queue.enqueue(5);
-//
-//    }
+    @Test
+    void testMethodEnqueue(){
+        Queue queue = new Queue(8);
+        int[] elements = queue.getElements();
+        queue.enqueue(5);
+        assertEquals(5, elements[0]);
+    }
+
+
 }
