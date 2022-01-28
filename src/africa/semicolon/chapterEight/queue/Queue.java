@@ -26,13 +26,16 @@ public class Queue {
     }
 
     public boolean empty() {
-        for (int element : elements) {
-            if (element == 0) return true;
+        for (int i = 0; i < elements.length; i++) {
+            if (elements[0] == 0) return true;
         }
         return false;
     }
 
     public int getSize() {
         return capacity;
+    }
+
+    public void dequeue() {
     }
 }

@@ -34,6 +34,11 @@ class QueueTest {
     }
 
     @Test
+    void testThatElementCanBeRemovedOnCallingDeque(){
+        Queue queue = new Queue(8);
+        queue.dequeue();
+    }
+    @Test
     void testThatReturnsTrueWhenQueueIsEmpty(){
         Queue queue = new Queue(8);
         boolean isEmpty = queue.empty();
@@ -45,6 +50,7 @@ class QueueTest {
         Queue queue = new Queue(8);
         queue.enqueue(5);
         boolean isEmpty = queue.empty();
+        System.out.println(isEmpty);
         assertFalse(isEmpty);
     }
 
