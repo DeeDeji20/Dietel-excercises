@@ -2,6 +2,8 @@ package africa.semicolon.chapterEight.queue;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class QueueTest {
@@ -22,6 +24,16 @@ class QueueTest {
     }
 
     @Test
+    void testThatElementsArePlacedAcrossAllIndex(){
+        Queue queue = new Queue(8);
+        int[] elements = queue.getElements();
+        queue.enqueue(5);
+        queue.enqueue(7);
+        queue.enqueue(7);
+        System.out.println(Arrays.toString(elements));
+    }
+
+    @Test
     void testThatReturnsTrueWhenQueueIsEmpty(){
         Queue queue = new Queue(8);
         boolean isEmpty = queue.empty();
@@ -34,5 +46,12 @@ class QueueTest {
         queue.enqueue(5);
         boolean isEmpty = queue.empty();
         assertFalse(isEmpty);
+    }
+
+    @Test
+    void testThatQueueReturnsArraySize(){
+        Queue queue = new Queue(8);
+        int size = queue.getSize();
+        assertEquals(8, size);
     }
 }

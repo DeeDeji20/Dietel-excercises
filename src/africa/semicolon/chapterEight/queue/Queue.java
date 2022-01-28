@@ -6,7 +6,7 @@ public class Queue {
 
     public Queue(int capacity) {
         this.capacity = capacity;
-        this.elements=new int[capacity];
+        elements=new int[capacity];
     }
 
     public int[] getElements() {
@@ -14,9 +14,13 @@ public class Queue {
     }
 
     public void enqueue(int v) {
-        for (int i = 0; i < elements.length; i++) {
-            if (elements[i] == 0){
+        for (int i = 0; i < elements.length; ) {
+            if (elements[i] != 0){
+                i++;
+            }
+            else if (elements[i] == 0){
                 elements[i] = v;
+                break;
             }
         }
     }
@@ -26,5 +30,9 @@ public class Queue {
             if (element == 0) return true;
         }
         return false;
+    }
+
+    public int getSize() {
+        return capacity;
     }
 }
