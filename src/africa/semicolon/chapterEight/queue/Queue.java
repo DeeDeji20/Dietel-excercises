@@ -20,4 +20,11 @@ public class Queue {
             }
         }
     }
+
+    public boolean empty() {
+        for (int element : elements) {
+            if (element == 0) return true;
+        }
+        return false;
+    }
 }
