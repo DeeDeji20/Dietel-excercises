@@ -4,36 +4,33 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class PersonalityTestQuestionnaire {
-    private Scanner scan = new Scanner(System.in);
-    private String[] answers = new String[20];
-//    private String[][] answers = new String[4][5];
-    private String choiceA = "A";
-    private String choiceB = "B";
-
+    private final Scanner scan = new Scanner(System.in);
+    private final String[] answers = new String[20];
     String[] questions = {
-    "A.expend energy, enjoy groups B.conserve energy, enjoy one-on-one",
-    "A.interpret literally B. look for meaning and possibilities",
-    "A.logical, thinking, questioning B. empathetic, feeling, accomodating",
-    "A.expend energy, enjoy groups B.conserve energy, enjoy one-on-one",
-    "A.interpret literally B. look for meaning and possibilities",
-    "A.logical, thinking, questioning B. empathetic, feeling, accomodating",
-    "A.expend energy, enjoy groups B.conserve energy, enjoy one-on-one",
-    "A.interpret literally B. look for meaning and possibilities",
-    "A.logical, thinking, questioning B. empathetic, feeling, accomodating",    "A.expend energy, enjoy groups B.conserve energy, enjoy one-on-one",
-    "A.interpret literally B. look for meaning and possibilities",
-    "A.logical, thinking, questioning B. empathetic, feeling, accomodating",    "A.expend energy, enjoy groups B.conserve energy, enjoy one-on-one",
-    "A.interpret literally B. look for meaning and possibilities",
-    "A.logical, thinking, questioning B. empathetic, feeling, accomodating",    "A.expend energy, enjoy groups B.conserve energy, enjoy one-on-one",
-    "A.interpret literally B. look for meaning and possibilities",
-    "A.logical, thinking, questioning B. empathetic, feeling, accomodating","A.interpret literally B. look for meaning and possibilities",
-    "A.logical, thinking, questioning B. empathetic, feeling, accomodating",
+            "(A).expand energy,conserve groups (B).conserve energy,enjoy one-on-one",
+            "(A).interpret literally (B).look for meaning and possibilities",
+            "(A).logical,thinking,questioning (B).empathetic,feeling,accommodating",
+            "(A).organized,orderly (B).flexible,adaptable",
+            "(A).more outgoing,think out loud (B).more reserved,think to yourself",
+            "(A).practical,realistic,experiential (B).imaginative,innovative,theoretical",
+            "(A).candid,straight forward,frank (B).tactful,encouraging,kind",
+            "(A).plan,schedule (b).unplanned,spontaneous",
+            "(A).seek many tasks,public activities,interaction with others (B).seek private,solitary activities with quiet to concentrate",
+            "(A).standard,usual,conventional (B).different,novel,unique",
+            "(A).firm,tend to criticize,hold the line  (B).gentle,tend to appreciate,conciliate",
+            "(A).regulated,structured (b).easygoing, \"live\" and \"let live\"",
+            "(A).external,communicative,express yourself (B).internal,reticent,keep to yourself",
+            "(A).focus on here-and-now (B).look to the future,global perspective,\"big picture\"",
+            "(A).tough-minded,just (B).tender-hearted,merciful",
+            "(A).preparation,plan ahead (B).go with the flow,adapt as you go",
+            "(A).active,initiate (B).reflective,deliberate",
+            "(A).facts,things,\"what is\" (B).ideas,dreams,\"what could be\",philosophical",
+            "(A).matter of fact,issue-oriented (B).sensitive,people oriented,compassionate",
+            "(A).control,govern (B).latitude,freedom"
     } ;
-
-
     public void promptUserForName(String msg) {
         System.out.println(msg);
         System.out.println("Welcome " + input());
-//        System.out.println(Arrays.deepToString(answers));
     }
 
     private String input() {
@@ -43,29 +40,27 @@ public class PersonalityTestQuestionnaire {
     public void renderQuestions() {
         for (int i = 0; i < questions.length; i++) {
             System.out.println(questions[i]);
-            String answer = scan.nextLine().toUpperCase();
+            String answer = input().toUpperCase();
+            while (!answer.equals("A") && !answer.equals("B")){
+                System.out.println("Not a valid option");
+                System.out.println(questions[i]);
+                answer = input().toUpperCase();
+            }
             answers[i]= answer;
-//            verifyAnswer(answer, i);
-            printAnswers();
+//            printAnswers();
         }
     }
-
     public void checkPersonalityTypeIntrovertAndExtrovert() {
         int countA = 0;
         int countB = 0;
         for (int i = 0; i < answers.length; i+=4) {
-
             if (answers[i].equals("A")) countA++;
             if (answers[i].equals("B")) countB++;
         }
-
         if (countA > countB) System.out.println("Extrovert");
         else System.out.println("Introvert");
     }
-
-
     private void verifyAnswer(String answer, int i) {
-
 //        int j = i;
 //        if (j >= 4) i = 0;
 //        for (j = i; j < i+1; j++) {
@@ -82,7 +77,7 @@ public class PersonalityTestQuestionnaire {
 //        }
     }
 
-    private void printAnswers() {
+    public void printAnswers() {
         System.out.println(Arrays.deepToString(answers));
     }
 
@@ -93,10 +88,8 @@ public class PersonalityTestQuestionnaire {
             if (answers[i].equals("A")) countA++;
             if (answers[i].equals("B")) countB++;
         }
-
         if (countA > countB) System.out.println("Sensitive");
         else System.out.println("Intuitive");
-
     }
 
     public void checkPersonalityTypeThinkersFeelers() {
@@ -120,17 +113,12 @@ public class PersonalityTestQuestionnaire {
         if (countA > countB) System.out.println("Judgement");
         else System.out.println("Perception");
     }
-}
 
-//    int j = i;
-//            if (i % 4 == 0) i = 0;
-//                    for (j = i; j < i+1; j++) {
-//        for (int k = 0; k < k+1; ){
-//        if (answers[j][k] == null){
-//        answers[j][k] = answer;
-//        break;
-//        }else {
-//        k += 1;
-//        }
-//        }
-//        }
+    public void checkPersonalityType() {
+        System.out.println("Your personality type is: ");
+        checkPersonalityTypeIntrovertAndExtrovert();
+        checkPersonalityTypeSensitiveAndIntuitive();
+        checkPersonalityTypeThinkersFeelers();
+        checkPersonalityTypeJudgementPerception();
+    }
+}

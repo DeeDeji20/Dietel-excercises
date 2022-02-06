@@ -5,9 +5,7 @@ public class PersonalityTestQuestionnaireTest {
         PersonalityTestQuestionnaire questions = new PersonalityTestQuestionnaire();
         questions.promptUserForName("What is your name? ");
         questions.renderQuestions();
-        questions.checkPersonalityTypeIntrovertAndExtrovert();
-        questions.checkPersonalityTypeSensitiveAndIntuitive();
-        questions.checkPersonalityTypeThinkersFeelers();
-        questions.checkPersonalityTypeJudgementPerception();
+        questions.checkPersonalityType();
+        questions.printAnswers();
     }
 }
