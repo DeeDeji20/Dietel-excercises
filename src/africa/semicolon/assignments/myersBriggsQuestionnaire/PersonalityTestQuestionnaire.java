@@ -1,5 +1,6 @@
 package africa.semicolon.assignments.myersBriggsQuestionnaire;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class PersonalityTestQuestionnaire {
@@ -9,12 +10,17 @@ public class PersonalityTestQuestionnaire {
     "A.expend energy, enjoy groups B.conserve energy, enjoy one-on-one",
     "A.interpret literally B. look for meaning and possibilities",
     "A.logical, thinking, questioning B. empathetic, feeling, accomodating",
-//    "What is your personality? A.expend energy, enjoy groups B.conserve energy, enjoy one-on-one"
+    "A.expend energy, enjoy groups B.conserve energy, enjoy one-on-one",
+    "A.interpret literally B. look for meaning and possibilities",
+    "A.logical, thinking, questioning B. empathetic, feeling, accomodating",
     } ;
+    private String[][] answers = new String[4][5];
+
 
     public void promptUserForName(String msg) {
         System.out.println(msg);
         System.out.println("Welcome " + input());
+        System.out.println(Arrays.deepToString(answers));
     }
 
     private String input() {
@@ -25,6 +31,20 @@ public class PersonalityTestQuestionnaire {
         for (int i = 0; i < questions.length; i++) {
             System.out.println(questions[i]);
             String answer = scan.nextLine();
+            for (int j = i; j < i+1; j++) {
+                for (int k = 0; k <= j; k++){
+                    if (answers[j][k] == null){
+                        answers[j][k] = answer;
+                        break;
+                    }
+                }
+            }
+            printAnswers();
         }
+//        collectAnswers();
+    }
+
+    private void printAnswers() {
+        System.out.println(Arrays.deepToString(answers));
     }
 }
