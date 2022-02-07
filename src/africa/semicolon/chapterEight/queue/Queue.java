@@ -24,7 +24,6 @@ public class Queue {
             }
         }
     }
-
     public boolean empty() {
         for (int i = 0; i < elements.length; i++) {
             if (elements[0] == 0) return true;

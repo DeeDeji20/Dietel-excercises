@@ -14,7 +14,7 @@ public class PersonalityTestQuestionnaire {
             "(A).more outgoing,think out loud (B).more reserved,think to yourself",
             "(A).practical,realistic,experiential (B).imaginative,innovative,theoretical",
             "(A).candid,straight forward,frank (B).tactful,encouraging,kind",
-            "(A).plan,schedule (b).unplanned,spontaneous",
+            "(A).plan,schedule (B).unplanned,spontaneous",
             "(A).seek many tasks,public activities,interaction with others (B).seek private,solitary activities with quiet to concentrate",
             "(A).standard,usual,conventional (B).different,novel,unique",
             "(A).firm,tend to criticize,hold the line  (B).gentle,tend to appreciate,conciliate",
@@ -59,22 +59,6 @@ public class PersonalityTestQuestionnaire {
         }
         if (countA > countB) System.out.println("Extrovert");
         else System.out.println("Introvert");
-    }
-    private void verifyAnswer(String answer, int i) {
-//        int j = i;
-//        if (j >= 4) i = 0;
-//        for (j = i; j < i+1; j++) {
-//            for (int k = 0; k < k+1; ){
-//                System.out.println(j);
-//                System.out.println(k);
-//                if (answers[j][k] == null){
-//                    answers[j][k] = answer;
-//                    break;
-//                }else {
-//                    k += 1;
-//                }
-//            }
-//        }
     }
 
     public void printAnswers() {
