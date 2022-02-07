@@ -1,6 +1,5 @@
 package africa.semicolon.chapterSeven.myersBriggs;
 
-import java.awt.*;
 import java.util.ArrayList;
 
 public class MyersBriggs {
@@ -10,7 +9,11 @@ public class MyersBriggs {
         return questions;
     }
 
-    public void renderQuestions() {
+    public Questions renderQuestions() {
+        for (int i = 0; i < questions.size(); i++) {
+            return questions.get(i);
+        }
+        return null;
     }
 
     public void setQuestions(Questions question) {

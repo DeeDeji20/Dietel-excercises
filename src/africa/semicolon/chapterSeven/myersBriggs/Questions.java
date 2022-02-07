@@ -3,10 +3,11 @@ package africa.semicolon.chapterSeven.myersBriggs;
 import java.util.ArrayList;
 
 public class Questions {
-    String questions;
+//    String questions;
+    Options options;
 
-    public Questions(String questions) {
-        this.questions = questions;
+    public Questions(Options options) {
+        this.options = options;
     }
 
 }

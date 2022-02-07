@@ -12,8 +12,7 @@ public class PersonalityTestQuestionnaireTest {
             questions.checkPersonalityType();
             questions.printAnswers();
         }catch (InputMismatchException e){
-            System.out.println(e.getMessage());
-        }catch (NullPointerException e){
+            System.out.println(e.getMessage());        }catch (NullPointerException e){
             System.out.println("Why are you null?");
         }
 

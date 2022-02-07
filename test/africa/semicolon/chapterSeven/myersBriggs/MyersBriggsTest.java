@@ -20,27 +20,38 @@ class MyersBriggsTest {
         assertNotNull(briggs);
     }
     @Test
-    public void testThatQuestionnaireHasQuestions(){
-        ArrayList<Questions> questions= briggs.getQuestions();
-        assertEquals(0, questions.size());
-    }
-
-    @Test
     public void testThatQuestionsCanBeadded(){
-        Questions questions = new Questions("(A).expand energy,conserve groups (B).conserve energy,enjoy one-on-one");
+        Options option = new Options("(A).expand energy,conserve groups (B).conserve energy,enjoy one-on-one");
+        Questions questions = new Questions(option);
         briggs.setQuestions(questions);
         assertEquals(1, briggs.getQuestions().size());
     }
 
     @Test
     public void testThatAnswersCanBeGotten(){
-        Questions questions = new Questions("(A).expand energy,conserve groups (B).conserve energy,enjoy one-on-one");
-        briggs.setQuestions(questions);
+        Options option = new Options("(A).expand energy,conserve groups (B).conserve energy,enjoy one-on-one");
+        Questions questions = new Questions(option);
+    }
+
+    @Test
+    public void testThatQuestionnaireHasQuestions(){
+        ArrayList<Questions> questions= briggs.getQuestions();
+        assertEquals(0, questions.size());
     }
 
     @Test
     public void testThatQuestionsCanBeServedOneAfterTheOther(){
-        briggs.renderQuestions();
+        Options option = new Options("(A).expand energy,conserve groups (B).conserve energy,enjoy one-on-one");
+        Questions questions = new Questions(option);
+        briggs.setQuestions(questions);
+        Options option2 = new Options("(A).expand energy,conserve groups (B).conserve energy,enjoy one-on-one");
+        Questions questions2 = new Questions(option2);
+        briggs.setQuestions(questions2);
+
+        assertEquals(2, briggs.getQuestions().size());
+        Questions question = briggs.renderQuestions();
+        String expected ="(A).expand energy,conserve groups (B).conserve energy,enjoy one-on-one";
+        assertEquals(expected, question);
     }
 
 }
