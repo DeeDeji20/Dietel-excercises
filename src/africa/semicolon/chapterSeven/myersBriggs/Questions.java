@@ -10,4 +10,11 @@ public class Questions {
         this.options = options;
     }
 
+    public Options getOptions() {
+        return options;
+    }
+
+    public Questions getQuestions() {
+        return null;
+    }
 }

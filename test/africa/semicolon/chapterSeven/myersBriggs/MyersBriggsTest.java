@@ -27,11 +27,11 @@ class MyersBriggsTest {
         assertEquals(1, briggs.getQuestions().size());
     }
 
-    @Test
-    public void testThatAnswersCanBeGotten(){
-        Options option = new Options("(A).expand energy,conserve groups (B).conserve energy,enjoy one-on-one");
-        Questions questions = new Questions(option);
-    }
+//    @Test
+//    public void testThatAnswersCanBeGotten(){
+//        Options option = new Options("(A).expand energy,conserve groups (B).conserve energy,enjoy one-on-one");
+//        Questions questions = new Questions(option);
+//    }
 
     @Test
     public void testThatQuestionnaireHasQuestions(){
@@ -49,7 +49,7 @@ class MyersBriggsTest {
         briggs.setQuestions(questions2);
 
         assertEquals(2, briggs.getQuestions().size());
-        Questions question = briggs.renderQuestions();
+        String question = briggs.renderQuestions();
         String expected ="(A).expand energy,conserve groups (B).conserve energy,enjoy one-on-one";
         assertEquals(expected, question);
     }
