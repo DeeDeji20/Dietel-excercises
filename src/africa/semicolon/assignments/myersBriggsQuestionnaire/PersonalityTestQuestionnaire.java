@@ -1,6 +1,7 @@
 package africa.semicolon.assignments.myersBriggsQuestionnaire;
 
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PersonalityTestQuestionnaire {
@@ -41,15 +42,22 @@ public class PersonalityTestQuestionnaire {
         for (int i = 0; i < questions.length; i++) {
             System.out.println(questions[i]);
             String answer = input().toUpperCase();
-            while (!answer.equals("A") && !answer.equals("B")){
-                System.out.println("Not a valid option");
-                System.out.println(questions[i]);
-                answer = input().toUpperCase();
-            }
+            answer = validateUserInput(questions[i], answer);
             answers[i]= answer;
 //            printAnswers();
         }
     }
+
+    private String validateUserInput(String question, String answer) {
+        while (!answer.equals("A") && !answer.equals("B")){
+//            throw new InputMismatchException("Invalid");
+            System.out.println("Not a valid option");
+            System.out.println(question);
+            answer = input().toUpperCase();
+        }
+        return answer;
+    }
+
     public void checkPersonalityTypeIntrovertAndExtrovert() {
         int countA = 0;
         int countB = 0;
