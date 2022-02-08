@@ -3,9 +3,10 @@ package africa.semicolon.chapterSeven.myersBriggs;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static africa.semicolon.chapterSeven.myersBriggs.PersonalityTrait.*;
+
 public class MyersBriggs {
     ArrayList<Questions> questions = new ArrayList<>();
-//    String[] userResponses = new String[]{"B", "B", "A", "A", "B", "A", "A", "B", "A", "B", "A", "B", "B", "A", "B", "B", "A", "A", "B", "B"};
 
 
     private static int sequence = 0;
@@ -31,8 +32,32 @@ public class MyersBriggs {
             if (userResponses[i].equals("B")) countB++;
         }
 
-        if (countB > countA) return PersonalityTrait.INTROVERT;
-        else return PersonalityTrait.EXTROVERT;
+        if (countB > countA) return INTROVERT;
+        else return EXTROVERT;
+    }
+
+    public PersonalityTrait getSensitiveAndIntuitivePersonality(String[] userResponses) {
+        int countA = 0;
+        int countB = 0;
+        for (int i = 1; i < userResponses.length; i+=4) {
+            if (userResponses[i].equals("A")) countA++;
+            if (userResponses[i].equals("B")) countB++;
+        }
+
+        if (countB > countA) return INTUITIVE;
+        return SENSITIVE;
+    }
+
+    public PersonalityTrait getThinkersAndFeelersPersonality(String[] userResponses) {
+        int countA = 0;
+        int countB = 0;
+        for (int i = 3; i < userResponses.length; i+=4) {
+            if (userResponses[i].equals("A")) countA++;
+            if (userResponses[i].equals("B")) countB++;
+        }
+
+        if (countB > countA) return THINKERS;
+        return null;
     }
 //
 //    public String renderQuestions() {

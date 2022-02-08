@@ -73,4 +73,44 @@ class MyersBriggsTest {
         assertEquals(trait, actual);
     }
 
+    @Test
+    public void testThatUserIsSensitive(){
+        Responses responses = new Responses();
+        String[] userResponses =responses.getResponses();
+        userResponses = new String[]{"A", "B", "A", "A", "A", "B", "A", "B", "A", "B", "A", "B", "A", "B", "B", "B", "A", "B", "B", "B"};
+        PersonalityTrait trait = PersonalityTrait.INTUITIVE;
+        PersonalityTrait actual = briggs.getSensitiveAndIntuitivePersonality(userResponses);
+        assertEquals(trait, actual);
+    }
+
+    @Test
+    public void testThatUserIsIntuitive(){
+        Responses responses = new Responses();
+        String[] userResponses =responses.getResponses();
+        userResponses = new String[]{"A", "A", "A", "A", "A", "A", "A", "B", "A", "A", "A", "B", "A", "A", "B", "B", "A", "A", "B", "B"};
+        PersonalityTrait trait = PersonalityTrait.SENSITIVE;
+        PersonalityTrait actual = briggs.getSensitiveAndIntuitivePersonality(userResponses);
+        assertEquals(trait, actual);
+    }
+
+    @Test
+    public void testThatUserIsThinker(){
+        Responses responses = new Responses();
+        String[] userResponses =responses.getResponses();
+        userResponses = new String[]{"A", "B", "A", "A", "A", "A", "A", "B", "A", "B", "A", "B", "A", "A", "A", "B", "A", "A", "A", "B"};
+        PersonalityTrait trait = PersonalityTrait.THINKERS;
+        PersonalityTrait actual = briggs.getThinkersAndFeelersPersonality(userResponses);
+        assertEquals(trait, actual);
+    }
+
+//    @Test
+//    public void testThatUserIsAnExtrovert(){
+//        Responses responses = new Responses();
+//        String[] userResponses =responses.getResponses();
+//        userResponses = new String[]{"A", "B", "A", "A", "A", "A", "A", "B", "A", "B", "A", "B", "A", "A", "B", "B", "A", "A", "B", "B"};
+//        PersonalityTrait trait = PersonalityTrait.EXTROVERT;
+//        PersonalityTrait actual = briggs.getPerceptionAndJudgementalPersonality(userResponses);
+//        assertEquals(trait, actual);
+//    }
+
 }
