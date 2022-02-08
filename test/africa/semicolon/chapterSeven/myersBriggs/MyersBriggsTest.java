@@ -20,10 +20,9 @@ class MyersBriggsTest {
         assertNotNull(briggs);
     }
     @Test
-    public void testThatQuestionsCanBeadded(){
-        Options option = new Options("(A).expand energy,conserve groups (B).conserve energy,enjoy one-on-one");
-        Questions questions = new Questions(option);
-        briggs.setQuestions(questions);
+    public void testThatQuestionsCanBeAdded(){
+        Questions questions = new Questions("(A).expand energy,conserve groups (B).conserve energy,enjoy one-on-one");
+        briggs.addQuestions(questions);
         assertEquals(1, briggs.getQuestions().size());
     }
 
@@ -40,18 +39,38 @@ class MyersBriggsTest {
     }
 
     @Test
-    public void testThatQuestionsCanBeServedOneAfterTheOther(){
-        Options option = new Options("(A).expand energy,conserve groups (B).conserve energy,enjoy one-on-one");
-        Questions questions = new Questions(option);
-        briggs.setQuestions(questions);
-        Options option2 = new Options("(A).expand energy,conserve groups (B).conserve energy,enjoy one-on-one");
-        Questions questions2 = new Questions(option2);
-        briggs.setQuestions(questions2);
+    public void testThatFirstQuestionsCanBeServed(){
+        Questions questions = new Questions("(A).expand energy,conserve groups (B).conserve energy,enjoy one-on-one");
+        Questions questions2 = new Questions("(A).interpret literally (B).look for meaning and possibilities");
+        briggs.addQuestions(questions, questions2);
 
         assertEquals(2, briggs.getQuestions().size());
-        Questions question = briggs.renderQuestion();
+        Questions question = null;
+        for (int i = 0; i <1; i++){
+            question = briggs.renderQuestion();
+        }
         String expected ="(A).expand energy,conserve groups (B).conserve energy,enjoy one-on-one";
-        assertEquals(expected, question.getOptions().getMessage());
+        assertEquals(expected, question.getMessage());
+    }
+
+    @Test
+    public void testThatUserIsAnIntrovert(){
+        Responses responses = new Responses();
+        String[] userResponses =responses.getResponses();
+        userResponses = new String[]{"B", "B", "A", "A", "B", "A", "A", "B", "A", "B", "A", "B", "B", "A", "B", "B", "A", "A", "B", "B"};
+        PersonalityTrait trait = PersonalityTrait.INTROVERT;
+        PersonalityTrait actual = briggs.getIntrovertAndExtrovertPersonality(userResponses);
+        assertEquals(trait, actual);
+    }
+
+    @Test
+    public void testThatUserIsAnExtrovert(){
+        Responses responses = new Responses();
+        String[] userResponses =responses.getResponses();
+        userResponses = new String[]{"A", "B", "A", "A", "A", "A", "A", "B", "A", "B", "A", "B", "A", "A", "B", "B", "A", "A", "B", "B"};
+        PersonalityTrait trait = PersonalityTrait.EXTROVERT;
+        PersonalityTrait actual = briggs.getIntrovertAndExtrovertPersonality(userResponses);
+        assertEquals(trait, actual);
     }
 
 }

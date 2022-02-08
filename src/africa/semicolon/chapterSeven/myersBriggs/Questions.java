@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Questions {
-//    String questions;
-    Options options;
+    String questions;
 
-    public Questions(Options options) {
-        this.options = options;
+    public Questions(String questions) {
+        this.questions = questions;
     }
 
-    public Options getOptions() {
-        return options;
-    }
 
     public Questions getQuestions() {
         return null;
+    }
+
+    public String getMessage() {
+        return questions;
     }
 }
