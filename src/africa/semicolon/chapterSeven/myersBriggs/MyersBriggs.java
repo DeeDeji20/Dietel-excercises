@@ -51,13 +51,25 @@ public class MyersBriggs {
     public PersonalityTrait getThinkersAndFeelersPersonality(String[] userResponses) {
         int countA = 0;
         int countB = 0;
+        for (int i = 2; i < userResponses.length; i+=4) {
+            if (userResponses[i].equals("A")) countA++;
+            if (userResponses[i].equals("B")) countB++;
+        }
+
+        if (countB > countA) return FEELERS;
+        else return THINKERS;
+    }
+
+    public PersonalityTrait getJudgementAndPerseptionPersonality(String[] userResponses) {
+        int countA = 0;
+        int countB = 0;
         for (int i = 3; i < userResponses.length; i+=4) {
             if (userResponses[i].equals("A")) countA++;
             if (userResponses[i].equals("B")) countB++;
         }
 
-        if (countB > countA) return THINKERS;
-        return null;
+        if (countB > countA) return PERCEPTION;
+        else return JUDGEMENT;
     }
 //
 //    public String renderQuestions() {

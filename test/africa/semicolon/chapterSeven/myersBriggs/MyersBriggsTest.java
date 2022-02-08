@@ -103,14 +103,33 @@ class MyersBriggsTest {
         assertEquals(trait, actual);
     }
 
-//    @Test
-//    public void testThatUserIsAnExtrovert(){
-//        Responses responses = new Responses();
-//        String[] userResponses =responses.getResponses();
-//        userResponses = new String[]{"A", "B", "A", "A", "A", "A", "A", "B", "A", "B", "A", "B", "A", "A", "B", "B", "A", "A", "B", "B"};
-//        PersonalityTrait trait = PersonalityTrait.EXTROVERT;
-//        PersonalityTrait actual = briggs.getPerceptionAndJudgementalPersonality(userResponses);
-//        assertEquals(trait, actual);
-//    }
+    @Test
+    public void testThatUserIsAFeeler(){
+        Responses responses = new Responses();
+        String[] userResponses =responses.getResponses();
+        userResponses = new String[]{"A", "B", "B", "A", "A", "A", "B", "A", "A", "B", "B", "A", "A", "A", "B", "A", "A", "A", "B", "A"};
+        PersonalityTrait trait = PersonalityTrait.FEELERS;
+        PersonalityTrait actual = briggs.getThinkersAndFeelersPersonality(userResponses);
+        assertEquals(trait, actual);
+    }
+    @Test
+    public void testThatUserIsPerception(){
+        Responses responses = new Responses();
+        String[] userResponses =responses.getResponses();
+        userResponses = new String[]{"A", "B", "B", "B", "A", "A", "B", "B", "A", "B", "B", "B", "A", "A", "B", "B", "A", "A", "B", "B"};
+        PersonalityTrait trait = PersonalityTrait.PERCEPTION;
+        PersonalityTrait actual = briggs.getJudgementAndPerseptionPersonality(userResponses);
+        assertEquals(trait, actual);
+    }
+
+    @Test
+    public void testThatUserIsJudgment(){
+        Responses responses = new Responses();
+        String[] userResponses =responses.getResponses();
+        userResponses = new String[]{"A", "B", "A", "A", "A", "A", "A", "A", "A", "B", "A", "A", "A", "A", "B", "A", "A", "A", "B", "A"};
+        PersonalityTrait trait = PersonalityTrait.JUDGEMENT;
+        PersonalityTrait actual = briggs.getJudgementAndPerseptionPersonality(userResponses);
+        assertEquals(trait, actual);
+    }
 
 }
