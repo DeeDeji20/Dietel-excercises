@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MyersBriggsTest {
-    MyersBriggs briggs;
+    Questionnaire briggs;
 //    Questions questions;
     @BeforeEach
     public void setUp(){
-        briggs = new MyersBriggs();
+        briggs = new Questionnaire();
     }
 
     @Test
@@ -130,6 +130,15 @@ class MyersBriggsTest {
         PersonalityTrait trait = PersonalityTrait.JUDGEMENT;
         PersonalityTrait actual = briggs.getJudgementAndPerseptionPersonality(userResponses);
         assertEquals(trait, actual);
+    }
+
+    @Test
+    public void testThatPersonalityTraitCanBeComputed(){
+        Responses responses = new Responses();
+        String[] userResponses =responses.getResponses();
+        userResponses = new String[]{"B", "A", "B", "A", "B", "A", "B", "A", "B", "B", "B", "B", "B", "B", "B", "B", "B", "A", "B", "B"};
+        String trait = briggs.generatePersonalityTrait(userResponses);
+        assertEquals("ISFP", trait);
     }
 
 }

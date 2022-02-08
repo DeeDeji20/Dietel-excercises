@@ -5,9 +5,8 @@ import java.util.Arrays;
 
 import static africa.semicolon.chapterSeven.myersBriggs.PersonalityTrait.*;
 
-public class MyersBriggs {
+public class Questionnaire {
     ArrayList<Questions> questions = new ArrayList<>();
-
 
     private static int sequence = 0;
 
@@ -71,7 +70,14 @@ public class MyersBriggs {
         if (countB > countA) return PERCEPTION;
         else return JUDGEMENT;
     }
-//
-//    public String renderQuestions() {
-//    }
+
+    public String generatePersonalityTrait(String[] userResponses) {
+//        System.out.println(getIntrovertAndExtrovertPersonality(userResponses).getValue());
+        return getIntrovertAndExtrovertPersonality(userResponses).getValue() +
+                getSensitiveAndIntuitivePersonality(userResponses).getValue() +
+                getThinkersAndFeelersPersonality(userResponses).getValue() +
+                getJudgementAndPerseptionPersonality(userResponses).getValue();
+//        return trait;
+
+    }
 }

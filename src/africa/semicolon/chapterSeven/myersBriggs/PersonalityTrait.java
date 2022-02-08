@@ -4,13 +4,18 @@ public enum PersonalityTrait {
     INTROVERT("I"),
     EXTROVERT("E"),
     SENSITIVE("S"),
-    INTUITIVE("I"),
+    INTUITIVE("N"),
     JUDGEMENT("J"),
     PERCEPTION("P"),
     THINKERS("T"),
     FEELERS("F");
-    private String value;
+
+    private final String value;
     PersonalityTrait(String code){
-        this.value = value;
+        value = code;
+    }
+
+    public String getValue() {
+        return value;
     }
 }
