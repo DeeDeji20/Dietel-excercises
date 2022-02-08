@@ -2,7 +2,6 @@ package africa.semicolon.chapterSeven.myersBriggs;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import static africa.semicolon.chapterSeven.myersBriggs.PersonalityTrait.*;
 
 public class Questionnaire {
