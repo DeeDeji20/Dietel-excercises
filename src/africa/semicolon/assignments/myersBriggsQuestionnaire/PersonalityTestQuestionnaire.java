@@ -50,7 +50,6 @@ public class PersonalityTestQuestionnaire {
 
     private String validateUserInput(String question, String answer) {
         while (!answer.equals("A") && !answer.equals("B")){
-//            throw new InputMismatchException("Invalid");
             System.out.println("Not a valid option");
             System.out.println(question);
             answer = input().toUpperCase();

@@ -5,23 +5,21 @@ import java.util.ArrayList;
 public class MyersBriggs {
     ArrayList<Questions> questions = new ArrayList<>();
 
+    private static int sequence = 0;
+
     public ArrayList<Questions> getQuestions() {
         return questions;
     }
 
-//    public Questions renderQuestions() {
-//        for (Questions question : questions) {
-//            return question.getOptions();
-//        }
-//        return null;
-//    }
-    
-    
-
+    public Questions renderQuestion() {
+      Questions newQuestion = questions.get(sequence);
+      sequence++;
+      return newQuestion;
+    }
     public void setQuestions(Questions question) {
         questions.add(question);
     }
-
-    public String renderQuestions() {
-    }
+//
+//    public String renderQuestions() {
+//    }
 }

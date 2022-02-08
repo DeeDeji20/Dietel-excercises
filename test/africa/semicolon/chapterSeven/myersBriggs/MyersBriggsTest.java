@@ -49,9 +49,9 @@ class MyersBriggsTest {
         briggs.setQuestions(questions2);
 
         assertEquals(2, briggs.getQuestions().size());
-        String question = briggs.renderQuestions();
+        Questions question = briggs.renderQuestion();
         String expected ="(A).expand energy,conserve groups (B).conserve energy,enjoy one-on-one";
-        assertEquals(expected, question);
+        assertEquals(expected, question.getOptions().getMessage());
     }
 
 }
