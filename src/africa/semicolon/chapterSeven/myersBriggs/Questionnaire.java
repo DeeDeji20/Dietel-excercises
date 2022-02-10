@@ -6,11 +6,19 @@ import static africa.semicolon.chapterSeven.myersBriggs.PersonalityTrait.*;
 
 public class Questionnaire {
     ArrayList<Questions> questions = new ArrayList<>();
-
+    ArrayList<Responses> userResponses = new ArrayList<>();
     private static int sequence = 0;
 
     public ArrayList<Questions> getQuestions() {
         return questions;
+    }
+
+    public void setUserResponses(Responses userResponse) {
+        userResponses.add(userResponse);
+    }
+
+    public ArrayList<Responses> getResponses() {
+        return userResponses;
     }
 
     public Questions renderQuestion() {
@@ -29,7 +37,6 @@ public class Questionnaire {
             if (userResponses[i].equals("A")) countA++;
             if (userResponses[i].equals("B")) countB++;
         }
-
         if (countB > countA) return INTROVERT;
         else return EXTROVERT;
     }
@@ -53,7 +60,6 @@ public class Questionnaire {
             if (userResponses[i].equals("A")) countA++;
             if (userResponses[i].equals("B")) countB++;
         }
-
         if (countB > countA) return FEELERS;
         else return THINKERS;
     }
@@ -65,18 +71,14 @@ public class Questionnaire {
             if (userResponses[i].equals("A")) countA++;
             if (userResponses[i].equals("B")) countB++;
         }
-
         if (countB > countA) return PERCEPTION;
         else return JUDGEMENT;
     }
 
     public String generatePersonalityTrait(String[] userResponses) {
-//        System.out.println(getIntrovertAndExtrovertPersonality(userResponses).getValue());
         return getIntrovertAndExtrovertPersonality(userResponses).getValue() +
                 getSensitiveAndIntuitivePersonality(userResponses).getValue() +
                 getThinkersAndFeelersPersonality(userResponses).getValue() +
                 getJudgementAndPerseptionPersonality(userResponses).getValue();
-//        return trait;
-
     }
 }

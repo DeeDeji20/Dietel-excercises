@@ -26,11 +26,13 @@ class MyersBriggsTest {
         assertEquals(1, briggs.getQuestions().size());
     }
 
-//    @Test
-//    public void testThatAnswersCanBeGotten(){
-//        Options option = new Options("(A).expand energy,conserve groups (B).conserve energy,enjoy one-on-one");
-//        Questions questions = new Questions(option);
-//    }
+    @Test
+    public void testThatAnswersCanBeGotten(){
+        ArrayList<Responses> responses = new ArrayList<>();
+        Responses response = new Responses();
+        briggs.setUserResponses(response);
+        assertEquals(1, briggs.getResponses().size());
+    }
 
     @Test
     public void testThatQuestionnaireHasQuestions(){
