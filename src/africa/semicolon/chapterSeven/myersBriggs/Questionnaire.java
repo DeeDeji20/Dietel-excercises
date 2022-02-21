@@ -82,3 +82,5 @@ public class Questionnaire {
                 getJudgementAndPerseptionPersonality(userResponses).getValue();
     }
 }
+
+
