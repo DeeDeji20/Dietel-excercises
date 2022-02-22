@@ -64,10 +64,10 @@ public class Turtle {
         int column = currentPosition.getColumn();
 
         switch(currentDirection){
-            case EAST -> {
+            case EAST, WEST -> {
                 if (row + steps > sketch.getBoard()[row].length) throw new TurtleCanFallOffTheCliffExcption("You go fall");
             }
-            case NORTH -> {
+            case NORTH, SOUTH -> {
                 if (column + steps > sketch.getBoard()[column].length) throw new TurtleCanFallOffTheCliffExcption("You go fall");
             }
         }
