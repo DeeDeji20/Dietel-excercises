@@ -1,13 +1,14 @@
 package africa.semicolon.chapterSeven.turtleGraphics;
 
-import javax.swing.text.Position;
+//import javax.swing.text.Position;
 import java.util.Arrays;
 
 public class Turtle {
-    private Pen pen = new Pen();
+    private final Pen pen = new Pen();
     private Direction currentDirection = Direction.EAST;
-    private APosition currentPosition = new APosition(0, 0);
-    private String[][] sketchpad = new String[5][5];
+    private final APosition currentPosition = new APosition(0, 0);
+    private final String[][] sketchpad = new String[5][5];
+    private final Sketchpad sketch = new Sketchpad(sketchpad);
 
     public Pen getPen() {
         return pen;
@@ -46,30 +47,41 @@ public class Turtle {
         else if (currentDirection == Direction.SOUTH) face(Direction.EAST);
     }
 
-    public void move(int steps) {
+    public void move(int steps) throws TurtleCanFallOffTheCliffExcption {
+        validateMove(steps);
+//        if (currentDirection == Direction.NORTH
+//                && pen.getStatus().equals(PenState.DOWN)
+//                && (currentPosition.getColumn() == 0 && currentPosition.getRow() == 0)) throw new TurtleCanFallOffTheCliffExcption("You will fall off the cliff");
+
         if (currentDirection == Direction.EAST && pen.getStatus().equals(PenState.DOWN)) increaseColumn(steps -1);
         if (currentDirection == Direction.SOUTH && pen.getStatus().equals(PenState.DOWN)) increaseRow(steps -1);
         if (currentDirection == Direction.WEST && pen.getStatus().equals(PenState.DOWN)) decreaseColumn(steps -1);
         if (currentDirection == Direction.NORTH && pen.getStatus().equals(PenState.DOWN)) decreaseRow(steps -1);
     }
 
-//    private void markSketchPadBy(int steps) {
-//        System.out.println(currentPosition.getRow() + " " + currentPosition.getColumn());
-//        for (int i = currentPosition.getRow(); i < currentPosition.getRow()+1; i++){
-//            for (int j = currentPosition.getColumn(); j < steps; j++){
-//                sketchpad[i][j] = "-";
-//            }
-//            System.out.println(Arrays.deepToString(sketchpad));
-//        }
-//    }
+    private void validateMove(int steps) throws TurtleCanFallOffTheCliffExcption {
+        int row = currentPosition.getRow();
+        int column = currentPosition.getColumn();
+
+        switch(currentDirection){
+            case EAST -> {
+                if (row + steps > sketch.getBoard()[row].length) throw new TurtleCanFallOffTheCliffExcption("You go fall");
+            }
+            case NORTH -> {
+                if (column + steps > sketch.getBoard()[column].length) throw new TurtleCanFallOffTheCliffExcption("You go fall");
+            }
+        }
+    }
 
     private void decreaseRow(int decrease) {
         for (int i = currentPosition.getRow(); i >= 0; i--) {
             for (int j = currentPosition.getColumn(); j <= currentPosition.getColumn(); j++) {
 //                System.out.println(i + " "+ j);
-                sketchpad[i][j] = "-";
+//                sketchpad[i][j] = "-";
+                sketch.getBoard()[i][j] = "-";
             }
         }
+//        sketch.display();
         currentPosition.setRow(currentPosition.getRow() - decrease);
     }
 
@@ -80,8 +92,8 @@ public class Turtle {
         for (int i = currentPosition.getRow(); i < currentPosition.getRow()+1; i++) {
             for (int j = currentPosition.getColumn(); j >= 0; j--) {
                 System.out.println(i + " " + j);
-
-                sketchpad[i][j] = "-";
+//                sketchpad[i][j] = "-";
+                sketch.getBoard()[i][j] = "-";
             }
             System.out.println(Arrays.deepToString(sketchpad));
         }
@@ -91,11 +103,9 @@ public class Turtle {
     private void increaseRow(int increase) {
         for (int i =currentPosition.getRow(); i <= increase; i++){
             for (int j = currentPosition.getColumn(); j <= currentPosition.getColumn(); j++) {
-//                System.out.println(currentPosition.getRow() + " " + currentPosition.getColumn());
-
-                sketchpad[i][j] = "-";
+//                sketchpad[i][j] = "-";
+                sketch.getBoard()[i][j] = "-";
             }
-//            System.out.println(Arrays.deepToString(sketchpad));
         }
         currentPosition.setRow(currentPosition.getRow() + increase);
     }
@@ -104,9 +114,9 @@ public class Turtle {
 //        System.out.println(currentPosition.getRow() + " " + currentPosition.getColumn());
         for (int i = currentPosition.getRow(); i < currentPosition.getRow()+1; i++){
             for (int j = currentPosition.getColumn(); j <= increase; j++){
-                sketchpad[i][j] = "-";
+//                sketchpad[i][j] = "-";
+                sketch.getBoard()[i][j]  ="-";
             }
-//            System.out.println(Arrays.deepToString(sketchpad));
         }
         currentPosition.setColumn(currentPosition.getColumn() + increase);
     }

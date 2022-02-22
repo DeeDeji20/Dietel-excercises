@@ -40,7 +40,6 @@ public class APosition {
     public void setColumn(int column){
         this.column = column;
     }
-
     public int getRow() {
         return row;
     }

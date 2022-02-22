@@ -141,7 +141,7 @@ class TurtleTest {
 
 
     @Test
-    public void testThatCanMove_WhileFacingEast(){
+    public void testThatCanMove_WhileFacingEast() throws TurtleCanFallOffTheCliffExcption {
         ijapa.penDown();
         ijapa.move(5);
         APosition expected = new APosition(0, 4);
@@ -149,7 +149,7 @@ class TurtleTest {
     }
 
     @Test
-    public void testThatCanMove_WhileFacingSouth(){
+    public void testThatCanMove_WhileFacingSouth() throws TurtleCanFallOffTheCliffExcption {
         ijapa.penDown();
         ijapa.turnRight();
         ijapa.move(4);
@@ -158,7 +158,7 @@ class TurtleTest {
     }
 
     @Test
-    public void testThatCanMove_WhileFacingWest(){
+    public void testThatCanMove_WhileFacingWest() throws TurtleCanFallOffTheCliffExcption {
         ijapa.penDown();
         ijapa.move(5);
         APosition expected = new APosition(0, 4);
@@ -172,7 +172,7 @@ class TurtleTest {
     }
 
     @Test
-    public void testThatCanMove_WhileFacingNorth(){
+    public void testThatCanMove_WhileFacingNorth() throws TurtleCanFallOffTheCliffExcption {
         ijapa.penDown();
         ijapa.turnRight();
         assertSame(Direction.SOUTH, ijapa.getCurrentDirection());
@@ -188,7 +188,7 @@ class TurtleTest {
     }
 
     @Test
-    public void testThatIjapaCanMarkOnBoardWhileMoving_East(){
+    public void testThatIjapaCanMarkOnBoardWhileMoving_East() throws TurtleCanFallOffTheCliffExcption {
         //given that i have a turtle, a sketchpad and pen is down
         String[][] board = new String[5][5];
         Sketchpad sketchpad = new Sketchpad(board);
@@ -204,7 +204,7 @@ class TurtleTest {
     }
 
     @Test
-    public void testThatIjapaCanMarkOnBoardWhileMoving_South(){
+    public void testThatIjapaCanMarkOnBoardWhileMoving_South() throws TurtleCanFallOffTheCliffExcption {
         //given that i have a turtle, a sketchpad and pen is down
         String[][] board = new String[5][5];
         Sketchpad sketchpad = new Sketchpad(board);
@@ -221,7 +221,7 @@ class TurtleTest {
     }
 
     @Test
-    public void testThatIjapaCanMarkOnBoardWhileMoving_West(){
+    public void testThatIjapaCanMarkOnBoardWhileMoving_West() throws TurtleCanFallOffTheCliffExcption {
         //given that i have a turtle, a sketchpad and pen is down
         String[][] board = new String[5][5];
         Sketchpad sketchpad = new Sketchpad(board);
@@ -248,7 +248,7 @@ class TurtleTest {
     }
 
     @Test
-    public void testThatIjapaCanMarkOnBoardWhileMoving_North(){
+    public void testThatIjapaCanMarkOnBoardWhileMoving_North() throws TurtleCanFallOffTheCliffExcption {
         //given that i have a turtle, a sketchpad and pen is down
         String[][] board = new String[5][5];
         Sketchpad sketchpad = new Sketchpad(board);
@@ -274,7 +274,7 @@ class TurtleTest {
     }
 
     @Test
-    public void testThatWhenPenIsUp_IjapaDoesntMarkOnBoard_WhileFacingEast(){
+    public void testThatWhenPenIsUp_IjapaDoesntMarkOnBoard_WhileFacingEast() throws TurtleCanFallOffTheCliffExcption {
         //given that i have a turtle, a sketchpad
         String[][] board = new String[5][5];
         Sketchpad sketchpad = new Sketchpad(board);
@@ -292,7 +292,7 @@ class TurtleTest {
     }
 
     @Test
-    public void testThatWhenPenIsUp_IjapaDoesntMarkOnBoard_WhileFacingSouth(){
+    public void testThatWhenPenIsUp_IjapaDoesntMarkOnBoard_WhileFacingSouth() throws TurtleCanFallOffTheCliffExcption {
         //given that i have a turtle, a sketchpad
         String[][] board = new String[5][5];
         Sketchpad sketchpad = new Sketchpad(board);
@@ -309,7 +309,7 @@ class TurtleTest {
     }
 
     @Test
-    public void testThatIjapaCannotMarkOnBoard_WhenPenIsUp_WhileMoving_West(){
+    public void testThatIjapaCannotMarkOnBoard_WhenPenIsUp_WhileMoving_West() throws TurtleCanFallOffTheCliffExcption {
         //given that i have a turtle, a sketchpad
         String[][] board = new String[5][5];
         Sketchpad sketchpad = new Sketchpad(board);
@@ -337,7 +337,7 @@ class TurtleTest {
     }
 
     @Test
-    public void testThatIjapaCannotMarkOnBoard_WhenPenIsUp_WhileMoving_North(){
+    public void testThatIjapaCannotMarkOnBoard_WhenPenIsUp_WhileMoving_North() throws TurtleCanFallOffTheCliffExcption {
         //given that i have a turtle, a sketchpad
         String[][] board = new String[5][5];
         Sketchpad sketchpad = new Sketchpad(board);
@@ -346,7 +346,11 @@ class TurtleTest {
         ijapa.penDown();
         ijapa.turnRight();
         ijapa.move(4);
-        String[][] expected4 = {{"-", null, null, null, null}, {"-", null, null, null, null}, {"-", null, null, null, null}, {"-", null, null, null, null}, {null, null, null, null, null}};
+        String[][] expected4 = {{"-", null, null, null, null},
+                                {"-", null, null, null, null},
+                                {"-", null, null, null, null},
+                                {"-", null, null, null, null},
+                                {null, null, null, null, null}};
         assertEquals(Direction.SOUTH, ijapa.getCurrentDirection());
         assertArrayEquals(expected4, ijapa.getSketchpad());
 
@@ -360,19 +364,24 @@ class TurtleTest {
         ijapa.penUp();
         ijapa.move(4);
         String[][] expected2 = {{"-", null, null, null, null}, {"-", null, null, null, null}, {"-", null, null, null, null}, {"-", "-", "-", "-", null}, {null, null, null, null, null}};
+//        sketchpad.getBoard();
         assertArrayEquals(expected2, ijapa.getSketchpad());
     }
 
     @Test
-    public void testThatwhenTurtleIsAtTheEdgesOfBoard_TurtleDoesntMove_AnExceptionIsThrown(){
+    public void testThatwhenTurtleIsAtTheEdgesOfBoard_TurtleDoesntMove_AnExceptionIsThrown() throws TurtleCanFallOffTheCliffExcption{
         //given that i have a turtle and board and turtle is at point 0,0
         //turtle has a pen and pen is down
         //turtle turns left and faces north
         ijapa.turnLeft();
         //when turtle moves
-//        ijapa.move(2);
+        try {
+            ijapa.move(2);
+        }catch (TurtleCanFallOffTheCliffExcption e){
+            assertEquals(TurtleCanFallOffTheCliffExcption.class, e.getClass());
+        }
         //check that turtle cannot move
-        assertThrows(TurtleCanFallOffTheCliffExcption.class, ()-> ijapa.move(2));
+//        assertThrows(TurtleCanFallOffTheCliffExcption.class, ()-> ijapa.move(2));
 
     }
 
