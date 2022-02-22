@@ -32,8 +32,6 @@ public class Turtle {
         else if (currentDirection == Direction.WEST) face(Direction.NORTH);
         else if (currentDirection == Direction.SOUTH) face(Direction.WEST);
         else if (currentDirection == Direction.NORTH) face(Direction.EAST);
-
-
     }
 
     private void face(Direction direction) {
@@ -49,10 +47,6 @@ public class Turtle {
 
     public void move(int steps) throws TurtleCanFallOffTheCliffExcption {
         validateMove(steps);
-//        if (currentDirection == Direction.NORTH
-//                && pen.getStatus().equals(PenState.DOWN)
-//                && (currentPosition.getColumn() == 0 && currentPosition.getRow() == 0)) throw new TurtleCanFallOffTheCliffExcption("You will fall off the cliff");
-
         if (currentDirection == Direction.EAST && pen.getStatus().equals(PenState.DOWN)) increaseColumn(steps -1);
         if (currentDirection == Direction.SOUTH && pen.getStatus().equals(PenState.DOWN)) increaseRow(steps -1);
         if (currentDirection == Direction.WEST && pen.getStatus().equals(PenState.DOWN)) decreaseColumn(steps -1);
@@ -64,11 +58,17 @@ public class Turtle {
         int column = currentPosition.getColumn();
 
         switch(currentDirection){
-            case EAST, WEST -> {
-                if (row + steps > sketch.getBoard()[row].length) throw new TurtleCanFallOffTheCliffExcption("You go fall");
+            case EAST -> {
+                if (column + steps > sketch.getBoard()[row].length) throw new TurtleCanFallOffTheCliffExcption("You go fall");
             }
-            case NORTH, SOUTH -> {
-                if (column + steps > sketch.getBoard()[column].length) throw new TurtleCanFallOffTheCliffExcption("You go fall");
+            case NORTH -> {
+                if (row + steps > sketch.getBoard()[column].length) throw new TurtleCanFallOffTheCliffExcption("You go fall");
+            }
+            case WEST -> {
+                if (column - steps > sketch.getBoard()[row].length) throw new TurtleCanFallOffTheCliffExcption("You go fall");
+            }
+            case SOUTH -> {
+                if (row - steps > sketch.getBoard()[column].length) throw new TurtleCanFallOffTheCliffExcption("You go fail");
             }
         }
     }
@@ -127,5 +127,13 @@ public class Turtle {
 
     public String[][] getSketchpad() {
         return sketchpad;
+    }
+    public void print(){
+        for (int i = 0; i < sketch.getBoard().length; i++) {
+            for (int j = 0; j < sketch.getBoard()[i].length; j++) {
+                System.out.print(sketch.getBoard()[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 }

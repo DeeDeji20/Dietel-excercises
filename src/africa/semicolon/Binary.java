@@ -1,5 +1,6 @@
 package africa.semicolon;
 
+import java.util.Arrays;
 import java.util.Scanner;
 //
 public class Binary {
@@ -13,5 +14,6 @@ public class Binary {
 //            System.out.print(userInput.charAt(i) *2 + " ");
         }
         System.out.println();
+
     }
 }
