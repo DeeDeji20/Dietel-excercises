@@ -1,6 +1,5 @@
 package africa.semicolon.chapterSeven.turtleGraphics;
 
-//import javax.swing.text.Position;
 import java.util.Arrays;
 
 public class Turtle {

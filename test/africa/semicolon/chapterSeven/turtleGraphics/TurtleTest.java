@@ -382,7 +382,6 @@ class TurtleTest {
         }
         //check that turtle cannot move
 //        assertThrows(TurtleCanFallOffTheCliffExcption.class, ()-> ijapa.move(2));
-
     }
 
     @org.junit.jupiter.api.AfterEach
