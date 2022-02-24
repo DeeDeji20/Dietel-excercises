@@ -2,8 +2,6 @@ package africa.semicolon.chapterSeven.turtleGraphics;
 
 import org.junit.jupiter.api.Test;
 
-import javax.swing.text.Position;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class TurtleTest {
@@ -192,13 +190,13 @@ class TurtleTest {
         //given that i have a turtle, a sketchpad and pen is down
         String[][] board = new String[5][5];
         Sketchpad sketchpad = new Sketchpad(board);
-        String[][] board2 = ijapa.getSketchpad();
+        String[][] board2 = ijapa.getBoard();
         //when i move on the skechpad
         ijapa.penDown();
         ijapa.move(4);
         //check that board is marked
         String[][] expected = {{"-", "-", "-", "-", null}, {null, null, null, null, null}, {null, null, null, null, null}, {null, null, null, null, null}, {null, null, null, null, null}};
-        assertArrayEquals(expected, ijapa.getSketchpad());
+        assertArrayEquals(expected, ijapa.getBoard());
         APosition expected2 = new APosition(0, 3);
         assertEquals(expected2, ijapa.getCurrentPosition());
     }
@@ -208,14 +206,14 @@ class TurtleTest {
         //given that i have a turtle, a sketchpad and pen is down
         String[][] board = new String[5][5];
         Sketchpad sketchpad = new Sketchpad(board);
-        String[][] board2 = ijapa.getSketchpad();
+        String[][] board2 = ijapa.getBoard();
         //when i move on the skechpad
         ijapa.penDown();
         ijapa.turnRight();
         ijapa.move(4);
         //check that board is marked
         String[][] expected = {{"-", null, null, null, null}, {"-", null, null, null, null}, {"-", null, null, null, null}, {"-", null, null, null, null}, {null, null, null, null, null}};
-        assertArrayEquals(expected, ijapa.getSketchpad());
+        assertArrayEquals(expected, ijapa.getBoard());
         APosition expected2 = new APosition(3, 0);
         assertEquals(expected2, ijapa.getCurrentPosition());
     }
@@ -225,25 +223,25 @@ class TurtleTest {
         //given that i have a turtle, a sketchpad and pen is down
         String[][] board = new String[5][5];
         Sketchpad sketchpad = new Sketchpad(board);
-        String[][] board2 = ijapa.getSketchpad();
+        String[][] board2 = ijapa.getBoard();
         //when i move on the skechpad
         ijapa.penDown();
         ijapa.move(4);
         String[][] expected = {{"-", "-", "-", "-", null}, {null, null, null, null, null}, {null, null, null, null, null}, {null, null, null, null, null}, {null, null, null, null, null}};
-        assertArrayEquals(expected, ijapa.getSketchpad());
+        assertArrayEquals(expected, ijapa.getBoard());
 
         ijapa.turnRight();  
         ijapa.move(4);
         String[][] expected4 = {{"-", "-", "-", "-", null}, {null, null, null, "-", null}, {null, null, null, "-", null}, {null, null, null, "-", null}, {null, null, null, null, null}};
         assertEquals(Direction.SOUTH, ijapa.getCurrentDirection());
-        assertArrayEquals(expected4, ijapa.getSketchpad());
+        assertArrayEquals(expected4, ijapa.getBoard());
         ijapa.turnRight();
         ijapa.move(4);
         APosition expected2 = new APosition(3, 0);
         assertEquals(expected2, ijapa.getCurrentPosition());
         //check that board is marked
         String[][] expected3 = {{"-", "-", "-", "-", null}, {null, null, null, "-", null}, {null, null, null, "-", null}, {"-", "-", "-", "-", null}, {null, null, null, null, null}};
-        assertArrayEquals(expected3, ijapa.getSketchpad());
+        assertArrayEquals(expected3, ijapa.getBoard());
 
     }
 
@@ -252,25 +250,25 @@ class TurtleTest {
         //given that i have a turtle, a sketchpad and pen is down
         String[][] board = new String[5][5];
         Sketchpad sketchpad = new Sketchpad(board);
-        String[][] board2 = ijapa.getSketchpad();
+        String[][] board2 = ijapa.getBoard();
         //when i move on the skechpad
         ijapa.penDown();
         ijapa.turnRight();
         ijapa.move(4);
         String[][] expected4 = {{"-", null, null, null, null}, {"-", null, null, null, null}, {"-", null, null, null, null}, {"-", null, null, null, null}, {null, null, null, null, null}};
         assertEquals(Direction.SOUTH, ijapa.getCurrentDirection());
-        assertArrayEquals(expected4, ijapa.getSketchpad());
+        assertArrayEquals(expected4, ijapa.getBoard());
 
         ijapa.turnLeft();
 //        ijapa.turnLeft();
         assertEquals(Direction.EAST, ijapa.getCurrentDirection());
         ijapa.move(4);
         String[][] expected = {{"-", null, null, null, null}, {"-", null, null, null, null}, {"-", null, null, null, null}, {"-", "-", "-", "-", null}, {null, null, null, null, null}};
-        assertArrayEquals(expected, ijapa.getSketchpad());
+        assertArrayEquals(expected, ijapa.getBoard());
         ijapa.turnLeft();
         ijapa.move(2);
         String[][] expected2 = {{"-", null, null, "-", null}, {"-", null, null, "-", null}, {"-", null, null, "-", null}, {"-", "-", "-", "-", null}, {null, null, null, null, null}};
-        assertArrayEquals(expected2, ijapa.getSketchpad());
+        assertArrayEquals(expected2, ijapa.getBoard());
     }
 
     @Test
@@ -278,7 +276,7 @@ class TurtleTest {
         //given that i have a turtle, a sketchpad
         String[][] board = new String[5][5];
         Sketchpad sketchpad = new Sketchpad(board);
-        String[][] board2 = ijapa.getSketchpad();
+        String[][] board2 = ijapa.getBoard();
         Pen pen = new Pen();
         //when i move on the skechpad
         ijapa.penUp();
@@ -288,7 +286,7 @@ class TurtleTest {
 
         //check that board is marked
         String[][] expected = {{null, null, null, null, null}, {null, null, null, null, null}, {null, null, null, null, null}, {null, null, null, null, null}, {null, null, null, null, null}};
-        assertArrayEquals(expected, ijapa.getSketchpad());
+        assertArrayEquals(expected, ijapa.getBoard());
     }
 
     @Test
@@ -296,14 +294,14 @@ class TurtleTest {
         //given that i have a turtle, a sketchpad
         String[][] board = new String[5][5];
         Sketchpad sketchpad = new Sketchpad(board);
-        String[][] board2 = ijapa.getSketchpad();
+        String[][] board2 = ijapa.getBoard();
         //when i move on the skechpad
         ijapa.penUp();
         ijapa.turnRight();
         ijapa.move(4);
         //check that board is marked
         String[][] expected = {{null, null, null, null, null}, {null, null, null, null, null}, {null, null, null, null, null}, {null, null, null, null, null}, {null, null, null, null, null}};
-        assertArrayEquals(expected, ijapa.getSketchpad());
+        assertArrayEquals(expected, ijapa.getBoard());
         APosition expected2 = new APosition(0, 0);
         assertEquals(expected2, ijapa.getCurrentPosition());
     }
@@ -313,18 +311,18 @@ class TurtleTest {
         //given that i have a turtle, a sketchpad
         String[][] board = new String[5][5];
         Sketchpad sketchpad = new Sketchpad(board);
-        String[][] board2 = ijapa.getSketchpad();
+        String[][] board2 = ijapa.getBoard();
         //when i move on the skechpad
         ijapa.penDown();
         ijapa.move(4);
         String[][] expected = {{"-", "-", "-", "-", null}, {null, null, null, null, null}, {null, null, null, null, null}, {null, null, null, null, null}, {null, null, null, null, null}};
-        assertArrayEquals(expected, ijapa.getSketchpad());
+        assertArrayEquals(expected, ijapa.getBoard());
 
         ijapa.turnRight();
         ijapa.move(4);
         String[][] expected4 = {{"-", "-", "-", "-", null}, {null, null, null, "-", null}, {null, null, null, "-", null}, {null, null, null, "-", null}, {null, null, null, null, null}};
         assertEquals(Direction.SOUTH, ijapa.getCurrentDirection());
-        assertArrayEquals(expected4, ijapa.getSketchpad());
+        assertArrayEquals(expected4, ijapa.getBoard());
         ijapa.turnRight();
         ijapa.penUp();
         ijapa.move(4);
@@ -332,7 +330,7 @@ class TurtleTest {
         assertEquals(expected2, ijapa.getCurrentPosition());
         //check that board is marked
         String[][] expected3 = {{"-", "-", "-", "-", null}, {null, null, null, "-", null}, {null, null, null, "-", null}, {null, null, null, "-", null}, {null, null, null, null, null}};
-        assertArrayEquals(expected3, ijapa.getSketchpad());
+        assertArrayEquals(expected3, ijapa.getBoard());
 
     }
 
@@ -341,7 +339,7 @@ class TurtleTest {
         //given that i have a turtle, a sketchpad
         String[][] board = new String[5][5];
         Sketchpad sketchpad = new Sketchpad(board);
-        String[][] board2 = ijapa.getSketchpad();
+        String[][] board2 = ijapa.getBoard();
         //when i move on the skechpad
         ijapa.penDown();
         ijapa.turnRight();
@@ -352,20 +350,20 @@ class TurtleTest {
                                 {"-", null, null, null, null},
                                 {null, null, null, null, null}};
         assertEquals(Direction.SOUTH, ijapa.getCurrentDirection());
-        assertArrayEquals(expected4, ijapa.getSketchpad());
+        assertArrayEquals(expected4, ijapa.getBoard());
 
         ijapa.turnLeft();
         assertEquals(Direction.EAST, ijapa.getCurrentDirection());
 
         ijapa.move(4);
         String[][] expected = {{"-", null, null, null, null}, {"-", null, null, null, null}, {"-", null, null, null, null}, {"-", "-", "-", "-", null}, {null, null, null, null, null}};
-        assertArrayEquals(expected, ijapa.getSketchpad());
+        assertArrayEquals(expected, ijapa.getBoard());
         ijapa.turnLeft();
         ijapa.penUp();
         ijapa.move(2);
         String[][] expected2 = {{"-", null, null, null, null}, {"-", null, null, null, null}, {"-", null, null, null, null}, {"-", "-", "-", "-", null}, {null, null, null, null, null}};
         ijapa.print();
-        assertArrayEquals(expected2, ijapa.getSketchpad());
+        assertArrayEquals(expected2, ijapa.getBoard());
     }
 
     @Test

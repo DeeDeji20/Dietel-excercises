@@ -53,5 +53,10 @@ class CreditCardValidationTest {
         String number = creditCard.getNumber();
 
         //when i try to get the second number from right to left
+        for (int i = number.length()-1; i >=0; i--){
+            if (i%2 == 0) System.out.println(number.charAt(i));
+//            assertEquals(2, number.charAt(number.length()-1));
+        }
+//        assertEquals(2, creditCard.doubleSecondDigits());
     }
 }

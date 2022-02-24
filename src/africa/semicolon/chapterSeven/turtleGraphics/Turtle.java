@@ -6,8 +6,8 @@ public class Turtle {
     private final Pen pen = new Pen();
     private Direction currentDirection = Direction.EAST;
     private final APosition currentPosition = new APosition(0, 0);
-    private final String[][] sketchpad = new String[5][5];
-    private final Sketchpad sketch = new Sketchpad(sketchpad);
+    private final String[][] board = new String[5][5];
+    private final Sketchpad sketch = new Sketchpad(board);
 
     public Pen getPen() {
         return pen;
@@ -80,30 +80,33 @@ public class Turtle {
                 sketch.getBoard()[i][j] = "-";
             }
         }
-//        sketch.display();
         currentPosition.setRow(currentPosition.getRow() - decrease);
     }
 
     private void decreaseColumn(int decrease) {
-        System.out.println(currentPosition.getRow());
-        System.out.println(currentPosition.getColumn());
-        System.out.println(decrease);
-        for (int i = currentPosition.getRow(); i < currentPosition.getRow()+1; i++) {
-            for (int j = currentPosition.getColumn(); j >= 0; j--) {
-                System.out.println(i + " " + j);
+//        System.out.println(currentPosition.getRow());
+//        System.out.println(currentPosition.getColumn());
+//        System.out.println(decrease);
+        if (pen.getStatus().equals(PenState.DOWN)) {
+            for (int i = currentPosition.getRow(); i < currentPosition.getRow() + 1; i++) {
+                for (int j = currentPosition.getColumn(); j >= 0; j--) {
+                    System.out.println(i + " " + j);
 //                sketchpad[i][j] = "-";
-                sketch.getBoard()[i][j] = "-";
+                    sketch.getBoard()[i][j] = "-";
+                }
+                System.out.println(Arrays.deepToString(board));
             }
-            System.out.println(Arrays.deepToString(sketchpad));
         }
         currentPosition.setColumn(currentPosition.getColumn() - decrease);
     }
 
     private void increaseRow(int increase) {
-        for (int i =currentPosition.getRow(); i <= increase; i++){
-            for (int j = currentPosition.getColumn(); j <= currentPosition.getColumn(); j++) {
+        if (pen.getStatus().equals(PenState.DOWN)) {
+            for (int i = currentPosition.getRow(); i <= increase; i++) {
+                for (int j = currentPosition.getColumn(); j <= currentPosition.getColumn(); j++) {
 //                sketchpad[i][j] = "-";
-                sketch.getBoard()[i][j] = "-";
+                    sketch.getBoard()[i][j] = "-";
+                }
             }
         }
         currentPosition.setRow(currentPosition.getRow() + increase);
@@ -111,10 +114,12 @@ public class Turtle {
 
     private void increaseColumn(int increase) {
 //        System.out.println(currentPosition.getRow() + " " + currentPosition.getColumn());
-        for (int i = currentPosition.getRow(); i < currentPosition.getRow()+1; i++){
-            for (int j = currentPosition.getColumn(); j <= increase; j++){
+        if (pen.getStatus().equals(PenState.DOWN)) {
+            for (int i = currentPosition.getRow(); i < currentPosition.getRow() + 1; i++) {
+                for (int j = currentPosition.getColumn(); j <= increase; j++) {
 //                sketchpad[i][j] = "-";
-                sketch.getBoard()[i][j]  ="-";
+                    sketch.getBoard()[i][j] = "-";
+                }
             }
         }
         currentPosition.setColumn(currentPosition.getColumn() + increase);
@@ -124,8 +129,8 @@ public class Turtle {
         return currentPosition;
     }
 
-    public String[][] getSketchpad() {
-        return sketchpad;
+    public String[][] getBoard() {
+        return board;
     }
     public void print(){
         for (int i = 0; i < sketch.getBoard().length; i++) {
