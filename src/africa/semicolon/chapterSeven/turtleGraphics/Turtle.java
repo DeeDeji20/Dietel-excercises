@@ -46,10 +46,10 @@ public class Turtle {
 
     public void move(int steps) throws TurtleCanFallOffTheCliffExcption {
         validateMove(steps);
-        if (currentDirection == Direction.EAST && pen.getStatus().equals(PenState.DOWN)) increaseColumn(steps -1);
-        if (currentDirection == Direction.SOUTH && pen.getStatus().equals(PenState.DOWN)) increaseRow(steps -1);
-        if (currentDirection == Direction.WEST && pen.getStatus().equals(PenState.DOWN)) decreaseColumn(steps -1);
-        if (currentDirection == Direction.NORTH && pen.getStatus().equals(PenState.DOWN)) decreaseRow(steps -1);
+        if (currentDirection == Direction.EAST) increaseColumn(steps -1);
+        if (currentDirection == Direction.SOUTH) increaseRow(steps -1);
+        if (currentDirection == Direction.WEST) decreaseColumn(steps -1);
+        if (currentDirection == Direction.NORTH) decreaseRow(steps -1);
     }
 
     private void validateMove(int steps) throws TurtleCanFallOffTheCliffExcption {
@@ -73,11 +73,13 @@ public class Turtle {
     }
 
     private void decreaseRow(int decrease) {
-        for (int i = currentPosition.getRow(); i >= 0; i--) {
-            for (int j = currentPosition.getColumn(); j <= currentPosition.getColumn(); j++) {
+        if (pen.getStatus().equals(PenState.DOWN)) {
+            for (int i = currentPosition.getRow(); i >= 0; i--) {
+                for (int j = currentPosition.getColumn(); j <= currentPosition.getColumn(); j++) {
 //                System.out.println(i + " "+ j);
 //                sketchpad[i][j] = "-";
-                sketch.getBoard()[i][j] = "-";
+                    sketch.getBoard()[i][j] = "-";
+                }
             }
         }
         currentPosition.setRow(currentPosition.getRow() - decrease);
@@ -94,7 +96,7 @@ public class Turtle {
 //                sketchpad[i][j] = "-";
                     sketch.getBoard()[i][j] = "-";
                 }
-                System.out.println(Arrays.deepToString(board));
+//                System.out.println(Arrays.deepToString(board));
             }
         }
         currentPosition.setColumn(currentPosition.getColumn() - decrease);

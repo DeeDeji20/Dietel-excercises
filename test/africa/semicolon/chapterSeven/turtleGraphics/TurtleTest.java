@@ -303,6 +303,7 @@ class TurtleTest {
         String[][] expected = {{null, null, null, null, null}, {null, null, null, null, null}, {null, null, null, null, null}, {null, null, null, null, null}, {null, null, null, null, null}};
         assertArrayEquals(expected, ijapa.getBoard());
         APosition expected2 = new APosition(0, 0);
+        ijapa.print();
         assertEquals(expected2, ijapa.getCurrentPosition());
     }
 
@@ -326,10 +327,11 @@ class TurtleTest {
         ijapa.turnRight();
         ijapa.penUp();
         ijapa.move(4);
-        APosition expected2 = new APosition(3, 3);
+        APosition expected2 = new APosition(3, 0);
         assertEquals(expected2, ijapa.getCurrentPosition());
         //check that board is marked
         String[][] expected3 = {{"-", "-", "-", "-", null}, {null, null, null, "-", null}, {null, null, null, "-", null}, {null, null, null, "-", null}, {null, null, null, null, null}};
+        ijapa.print();
         assertArrayEquals(expected3, ijapa.getBoard());
 
     }
@@ -359,6 +361,8 @@ class TurtleTest {
         String[][] expected = {{"-", null, null, null, null}, {"-", null, null, null, null}, {"-", null, null, null, null}, {"-", "-", "-", "-", null}, {null, null, null, null, null}};
         assertArrayEquals(expected, ijapa.getBoard());
         ijapa.turnLeft();
+        assertEquals(Direction.NORTH, ijapa.getCurrentDirection());
+
         ijapa.penUp();
         ijapa.move(2);
         String[][] expected2 = {{"-", null, null, null, null}, {"-", null, null, null, null}, {"-", null, null, null, null}, {"-", "-", "-", "-", null}, {null, null, null, null, null}};
