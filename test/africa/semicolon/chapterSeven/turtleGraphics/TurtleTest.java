@@ -302,7 +302,7 @@ class TurtleTest {
         //check that board is marked
         String[][] expected = {{null, null, null, null, null}, {null, null, null, null, null}, {null, null, null, null, null}, {null, null, null, null, null}, {null, null, null, null, null}};
         assertArrayEquals(expected, ijapa.getBoard());
-        APosition expected2 = new APosition(0, 0);
+        APosition expected2 = new APosition(3, 0);
         ijapa.print();
         assertEquals(expected2, ijapa.getCurrentPosition());
     }
