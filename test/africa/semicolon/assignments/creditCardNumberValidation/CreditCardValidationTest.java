@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CreditCardValidationTest {
     CreditCardValidation creditCard;
     private static String doubleEvenDigit;
+    private static String doubleOddDigit;
     @BeforeEach
     void setUp(){
         creditCard = new CreditCardValidation("4388576018402626");
@@ -75,6 +76,7 @@ class CreditCardValidationTest {
 
     @Test
     void test_add_all_single_digit_from_the_double_odd_placed_digit(){
-
+        doubleOddDigit = CreditCardValidation.doubleOddPlace(creditCard.getNumber());
+        assertEquals(31, CreditCardValidation.sumOfDoubleOddPlace(doubleOddDigit));
     }
 }

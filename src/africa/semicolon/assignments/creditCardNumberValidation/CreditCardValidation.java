@@ -90,6 +90,14 @@ public class CreditCardValidation {
         return number < 10;
     }
 
+    public static int sumOfDoubleOddPlace(String doubleOddPlace) {
+        int sum = 0;
+        for (int i = 0; i < doubleOddPlace.length(); i++) {
+            sum += Character.getNumericValue(doubleOddPlace.charAt(i));
+        }
+        return sum;
+    }
+
     public String getNumber() {
         return number;
     }
