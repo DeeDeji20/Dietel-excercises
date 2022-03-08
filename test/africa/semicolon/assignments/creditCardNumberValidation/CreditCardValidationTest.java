@@ -79,4 +79,11 @@ class CreditCardValidationTest {
         doubleOddDigit = CreditCardValidation.doubleOddPlace(creditCard.getNumber());
         assertEquals(31, CreditCardValidation.sumOfDoubleOddPlace(doubleOddDigit));
     }
+
+    @Test
+    void test_to_get_the_sum_of_odd_and_even_places (){
+        doubleOddDigit = CreditCardValidation.doubleOddPlace(creditCard.getNumber());
+        doubleEvenDigit = CreditCardValidation.doubleEvenPlace(creditCard.getNumber());
+        assertEquals(68, CreditCardValidation.getSumOfEvenAndOddDigit());
+    }
 }

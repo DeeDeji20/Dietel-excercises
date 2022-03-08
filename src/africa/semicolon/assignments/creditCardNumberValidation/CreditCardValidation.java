@@ -98,6 +98,10 @@ public class CreditCardValidation {
         return sum;
     }
 
+    public static int getSumOfEvenAndOddDigit() {
+        return 0 ;
+    }
+
     public String getNumber() {
         return number;
     }
