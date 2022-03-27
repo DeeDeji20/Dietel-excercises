@@ -14,6 +14,7 @@ class PigLatinTest {
     @Test
     void testThatWordCanBeConvertedToPigLatin(){
         PigLatin pigLatin = new PigLatin();
-        pigLatin.convertWord("jump");
+        pigLatin.printLatinWord("jump");
+        assertEquals("umpjay", pigLatin.getPigLatin());
     }
 }
