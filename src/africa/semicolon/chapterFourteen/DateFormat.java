@@ -1,11 +1,8 @@
 package africa.semicolon.chapterFourteen;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.ListIterator;
-
 public class DateFormat {
     private static final StringBuilder builder = new StringBuilder();
+    private static final StringBuilder builder2 = new StringBuilder();
 
     public static void convertDate(String date) {
         String[] newDate = date.split("/");
@@ -38,13 +35,41 @@ public class DateFormat {
     }
 
     public static void convertDateFormat(String date) {
+        String[] strArray = new String[0];
         for (int i = 0; i < date.length(); i++) {
             if (date.charAt(i) == ',') {
-                String firstPart = date.substring(0, i);
-                String secondString = date.substring(i + 1);
-                String val = firstPart.concat(secondString);
+                String value = extractDate(date, i);
+                strArray = value.split(" ");
             }
         }
+        getMonthNumber(strArray);
+        builder2.append("/").append(strArray[1]).append("/").append(strArray[2]);
+    }
 
+    private static void getMonthNumber(String[] strArray) {
+        switch(strArray[0].toLowerCase()){
+            case "january"-> builder2.append("01");
+            case "february"-> builder2.append("02");
+            case "march"-> builder2.append("03");
+            case "april"-> builder2.append("04");
+            case "may"-> builder2.append("05");
+            case "june"-> builder2.append("06");
+            case "july"-> builder2.append("07");
+            case "august"-> builder2.append("08");
+            case "september"-> builder2.append("09");
+            case "october"-> builder2.append("10");
+            case "november"-> builder2.append("11");
+            case "december"-> builder2.append("12");
+        }
+    }
+
+    private static String extractDate(String date, int i) {
+        String firstPart = date.substring(0, i);
+        String secondString = date.substring(i + 1);
+        return firstPart.concat(secondString);
+    }
+
+    public static String getDateFormat() {
+        return builder2.toString();
     }
 }
