@@ -11,4 +11,9 @@ class DateFormatTest {
         assertEquals("April 25, 1995", DateFormat.getDate());
     }
 
+    @Test
+    void convertDateToNewFormat(){
+        DateFormat.convertDateFormat("April 25, 1995");
+        assertEquals("04/25/1995", DateFormat.getDate());
+    }
 }

@@ -1,6 +1,8 @@
 package africa.semicolon.chapterFourteen;
 
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.ListIterator;
 
 public class DateFormat {
     private static final StringBuilder builder = new StringBuilder();
@@ -33,5 +35,12 @@ public class DateFormat {
 
     public static String getDate() {
         return builder.toString();
+    }
+
+    public static void convertDateFormat(String date) {
+        for (int i = 0; i < date.length(); i++) {
+            if (date.charAt(i) == ',') System.out.println(date.replace(',', ' '));;
+        }
+
     }
 }
