@@ -39,7 +39,11 @@ public class DateFormat {
 
     public static void convertDateFormat(String date) {
         for (int i = 0; i < date.length(); i++) {
-            if (date.charAt(i) == ',') System.out.println(date.replace(',', ' '));;
+            if (date.charAt(i) == ',') {
+                String firstPart = date.substring(0, i);
+                String secondString = date.substring(i + 1);
+                String val = firstPart.concat(secondString);
+            }
         }
 
     }
