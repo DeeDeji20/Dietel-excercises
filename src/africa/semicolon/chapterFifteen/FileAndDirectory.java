@@ -5,7 +5,7 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Scanner;
+import java.util.*;
 
 public class FileAndDirectory {
     public static void main(String[] args) throws IOException {
@@ -22,8 +22,10 @@ public class FileAndDirectory {
             System.out.printf("Path:%s%n", path);
             System.out.printf("Absolute path: %s%n", path.toAbsolutePath());
 
+            Integer[] array = new Integer[5];
+
             if (Files.isDirectory(path)){
-                System.out.println("%n Directory contents: %n");
+                System.out.printf("%n Directory contents: %n");
                 DirectoryStream<Path> directoryStream = Files.newDirectoryStream(path);
                 for (Path child : directoryStream){
                     System.out.println(child);
