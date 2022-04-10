@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Practice {
     public static void main(String[] args) {
-       getIndexOfS("Mississipi");
+        getIndexOfS("Mississipi");
     }
 
     private static void getIndexOfS(String word) {
