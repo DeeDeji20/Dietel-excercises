@@ -1,10 +1,7 @@
 package africa.semicolon.chapterSixteen;
 
 import java.security.SecureRandom;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.OptionalDouble;
+import java.util.*;
 
 public class InsertingElementsInLinkedList {
     public static void main(String[] args) {
@@ -20,6 +17,17 @@ public class InsertingElementsInLinkedList {
            list.sort(Comparator.naturalOrder());
         }
 
-        System.out.println(list);
+        List<String> list1 = new ArrayList<>();
+        list1.add("red");
+        list1.add("green");
+        list1.add("blue");
+        List<String> list2 = new ArrayList<>();
+        list2.add("red");
+        list2.add("orange");
+        list2.add("pink");
+
+        System.out.println(list2);
+//        System.out.println(list);
     }
 }
+
