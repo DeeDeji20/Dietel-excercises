@@ -1,18 +1,19 @@
 package africa.semicolon.algo;
 
 public class ConsecutiveOnes {
+    boolean isConsecutive = false;
     public boolean solution(int[] numbers) {
         for (int i = 0; i <numbers.length; i++){
-            int num1 = i;
-            int num2 = i + 1;
 
-            if (num1 == 1 && num2 == 1){
+            if(numbers[i] == 1){
+                isConsecutive = true;
+            }
+            else if (numbers[i] != 1 && isConsecutive){
                 break;
             }
-                return true;
-
         }
-        return false;
+        return isConsecutive;
+
     }
     /*
     * You are given a list of integers nums which contains at least one 1.
