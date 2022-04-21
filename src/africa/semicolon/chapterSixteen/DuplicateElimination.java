@@ -1,11 +1,22 @@
 package africa.semicolon.chapterSixteen;
 
-import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class DuplicateElimination {
-    public static void main(String[] args) {
-//        int[] arr = {9, 4, 5, 7, 8};
-//        Arrays.sort(arr);
-//        System.out.println(Arrays.toString(arr));
+    private static final Set<String> set = new HashSet<>();
+
+    public static void processInformation(String[] list) {
+        for (String str : list) {
+            set.add(str);
+        }
+
+    }
+
+    public static int getSize() {
+       return set.size();
+    }
+
+    public static void getUser(String user) {
     }
 }
