@@ -17,6 +17,7 @@ public class DuplicateElimination {
        return set.size();
     }
 
-    public static void getUser(String user) {
+    public static boolean getUser(String user) {
+        return set.contains(user);
     }
 }

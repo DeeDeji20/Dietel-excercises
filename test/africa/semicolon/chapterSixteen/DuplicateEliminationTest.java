@@ -20,6 +20,7 @@ class DuplicateEliminationTest {
     void testThatANameCanBeGottenFromSet(){
         String[] list = new String[]{"Tife", "Yetty", "Toni", "Dupe", "Toni", "Emma", "Yetty"};
         DuplicateElimination.processInformation(list);
-        DuplicateElimination.getUser("Toni");
+//        DuplicateElimination.getUser("Toni");
+        assertTrue(DuplicateElimination.getUser("Toni"));
     }
 }
