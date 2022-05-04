@@ -19,6 +19,16 @@ class Polling2Test {
     @Test
     void testThatFiveTopicsExistInArray(){
         assertEquals(5, polling.getTopics().length);
+    }
 
+    @Test
+    void testThatResponsesSectionCanBeDisplayed(){
+        polling.getResponses();
+    }
+
+    @Test
+    void testThatEachTopicCanBeRated(){
+       String topic1 = polling.getTopics()[0];
+       assertEquals(polling.getResponses(), 1);
     }
 }
