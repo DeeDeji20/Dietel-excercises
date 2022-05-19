@@ -12,7 +12,6 @@ class ReversingStringTest {
         assertEquals("enin_trohoc", reversedString);
     }
 
-    @Test
-    void testThat
+
 
 }
